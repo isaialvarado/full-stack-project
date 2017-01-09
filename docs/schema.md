@@ -26,6 +26,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+value          | integer   | not null
 user_id   | integer   | not null, foreign key (references users), indexed
 deal_id   | integer   | not null, foreign key (references deals), indexed
 
