@@ -11,7 +11,7 @@
       vendor: "",
       imageUrl: "",
       thumbs: 5,
-      comments: 10
+      totalComments: 10
     }
   },
   dealDetail: {
@@ -23,7 +23,7 @@
     category: "",
     dealUrl: "",
     imageUrl: "",
-    totalThumbs: -5,
+    thumbs: -5,
     totalComments: 10,
     createdAt: "",
     updatedAt: "",

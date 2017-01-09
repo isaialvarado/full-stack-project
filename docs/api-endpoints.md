@@ -25,6 +25,11 @@
 - `PATCH /api/deals/:id`
 - `DELETE /api/deals/:id`
 
+### Thumbs
+
+- `POST /api/deals/:id/thumbs`
+- `PATCH /api/deals/:id/thumbs`
+
 ### Comments
 
 - `POST /api/deals/:id/comments`

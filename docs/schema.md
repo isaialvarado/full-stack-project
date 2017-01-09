@@ -16,12 +16,18 @@ id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
 price        | float      | not null
-rating        | integer      | not null
 vendor        | string      | not null
 category        | string      | not null
 deal_url        | text      | not null
 image_url        | text      |
 author_id   | integer   | not null, foreign key (references users), indexed
+
+## thumbs
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id   | integer   | not null, foreign key (references users), indexed
+deal_id   | integer   | not null, foreign key (references deals), indexed
 
 ## comments
 column name | data type | details
