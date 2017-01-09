@@ -1,8 +1,8 @@
 # ShareDeals
 
-[Heroku link][heroku]
+[Heroku][heroku]
 
-[Trello link][trello]
+[Trello][trello]
 
 [heroku]: http://www.herokuapp.com
 [trello]: https://trello.com/b/UN9FM09p
@@ -20,7 +20,7 @@ sufficient CSS styling:
 - [ ] Thumbs-up or thumbs-down deals
 - [ ] Comment on deals
 - [ ] Search and filter deals
-- [ ] [Production README](/README.md)
+- [ ] [Production README](docs/README.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -29,11 +29,11 @@ sufficient CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: /wireframes
-[components]: /component-hierarchy.md
-[sample-state]: /sample-state.md
-[api-endpoints]: /api-endpoints.md
-[schema]: /schema.md
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
 
 ## Implementation Timeline
 
