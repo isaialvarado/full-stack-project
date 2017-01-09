@@ -5,7 +5,7 @@
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
-[trello]: https://trello.com/b/ALgfuX0Q/freshernote
+[trello]: https://trello.com/b/UN9FM09p
 
 ## Minimum Viable Product
 
@@ -20,7 +20,7 @@ sufficient CSS styling:
 - [ ] Thumbs-up or thumbs-down deals
 - [ ] Comment on deals
 - [ ] Search and filter deals
-- [ ] [Production README](docs/README.md)
+- [ ] [Production README](/README.md)
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -29,11 +29,11 @@ sufficient CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: /wireframes
+[components]: /component-hierarchy.md
+[sample-state]: /sample-state.md
+[api-endpoints]: /api-endpoints.md
+[schema]: /schema.md
 
 ## Implementation Timeline
 
