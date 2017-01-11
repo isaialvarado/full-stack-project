@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ExampleApp from '../modal/session_modal';
 
 const sessionLinks = (currentUser, logout) => {
   if (currentUser) {
@@ -12,8 +13,8 @@ const sessionLinks = (currentUser, logout) => {
   } else {
     return (
       <div className='session-links'>
-        <Link to='/login'>Log In</Link>
-        <Link to='/signup'>Sign Up</Link>
+        <ExampleApp formType='Log In' />
+        <ExampleApp formType='Sign Up' />
       </div>
     );
   }
@@ -21,7 +22,9 @@ const sessionLinks = (currentUser, logout) => {
 
 const Header = ({ currentUser, logout }) => (
   <nav className='header'>
-    <h1>ShareDeals</h1>
+    <div className='header-left'>
+      <h1>ShareDeals</h1>
+    </div>
     <div className='header-right'>
       <input className='search' type='search' placeholder='  Search deals' />
       {sessionLinks(currentUser, logout)}

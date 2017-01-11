@@ -1,11 +1,36 @@
-.session h1 {
-  font-size: 20px;
+.session-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(130, 130, 130, 0.75);
 }
 
-.session input {
-  border: 1px solid lightgray;
-  border-radius: 4px;
+.session-modal {
+  background-color: white;
+  border-radius: 9px;
+  width: 450px;
 }
+
+.session-modal button {
+  color: blue;
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.session h1 {
+  font-size: 30px;
+}
+
 
 .session form {
   display: flex;
@@ -14,8 +39,13 @@
 
 .session input {
   width: 250px;
+  height: 28px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
 }
 
-.session a {
-  color: blue;
+.session input[type='submit'] {
+  text-align: center;
+  background-color: green;
+  color: white;
 }

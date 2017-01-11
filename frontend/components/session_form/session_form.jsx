@@ -4,20 +4,20 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' , email: ''};
+    this.state = { username: '', password: '' , email: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate() {
-    this.redirectIfLoggedIn();
-  }
-
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
-      this.props.router.push('/');
-    }
-  }
+  // componentDidUpdate() {
+  //   this.redirectIfLoggedIn();
+  // }
+  //
+  // redirectIfLoggedIn() {
+  //   if (this.props.loggedIn) {
+  //     this.props.router.push('/');
+  //   }
+  // }
 
   handleChange(property) {
     return e => this.setState({ [property]: e.target.value });
@@ -26,9 +26,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm(user).then(() => (
-      this.setState = { username: '', password: '' , email: ''}
-    ));
+    this.props.processForm(user);
   }
 
   renderErrors() {
@@ -42,12 +40,10 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const path = this.props.pathname;
-    let welcomeMessage, footer, credentialsText,
-        emailLabel, emailInput, emailInputBreak;
+    const formType = this.props.formType;
+    let credentialsText, emailLabel, emailInput, emailInputBreak;
 
-    if (path === 'signup') {
-      welcomeMessage = 'Join ShareDeals';
+    if (formType === 'Sign Up') {
       credentialsText = 'Username';
       emailLabel = <label htmlFor='email'>Email</label>;
       emailInput = (
@@ -58,24 +54,12 @@ class SessionForm extends React.Component {
             onChange={this.handleChange('email')} />
       );
       emailInputBreak = <br />;
-      footer = (
-        <span>{'Already have an account?' }
-          <Link to='/login'>Log In</Link>
-        </span>
-      );
     } else {
-      welcomeMessage = 'Welcome to ShareDeals';
       credentialsText = 'Email Address or Username';
-      footer = (
-        <span>{'Not a member? '}
-          <Link to='/signup'>Create an Account</Link>
-        </span>
-      );
     }
 
     return (
-      <div className='session'>
-        <h1>{welcomeMessage}</h1>
+      <div>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
 
@@ -99,9 +83,7 @@ class SessionForm extends React.Component {
 
           <br />
 
-          <input type='submit' value='submit' />
-          <br />
-          {footer}
+          <input type='submit' value={formType} />
         </form>
       </div>
     );
