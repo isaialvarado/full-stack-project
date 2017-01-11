@@ -1,0 +1,25 @@
+.session {
+
+}
+
+.session h1 {
+  font-size: 20px;
+}
+
+.session input {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.session form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session input {
+  width: 250px;
+}
+
+.session a {
+  color: blue;
+}

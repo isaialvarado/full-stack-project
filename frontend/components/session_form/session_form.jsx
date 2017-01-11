@@ -43,22 +43,23 @@ class SessionForm extends React.Component {
 
   render() {
     const path = this.props.pathname;
-    let welcomeMessage, footer, credentialsText, emailInput, emailInputBreak;
+    let welcomeMessage, footer, credentialsText,
+        emailLabel, emailInput, emailInputBreak;
 
     if (path === 'signup') {
       welcomeMessage = 'Join ShareDeals';
       credentialsText = 'Username';
+      emailLabel = <label htmlFor='email'>Email</label>;
       emailInput = (
-        <label>Email
           <input
-            type='text'
+            id='email'
+            type='email'
             value={this.state.email}
             onChange={this.handleChange('email')} />
-        </label>
       );
       emailInputBreak = <br />;
       footer = (
-        <span>Already have an account?
+        <span>{'Already have an account?' }
           <Link to='/login'>Log In</Link>
         </span>
       );
@@ -66,36 +67,35 @@ class SessionForm extends React.Component {
       welcomeMessage = 'Welcome to ShareDeals';
       credentialsText = 'Email Address or Username';
       footer = (
-        <span>Not a member?
+        <span>{'Not a member? '}
           <Link to='/signup'>Create an Account</Link>
         </span>
       );
     }
 
     return (
-      <div>
-        <span>{welcomeMessage}</span>
+      <div className='session'>
+        <h1>{welcomeMessage}</h1>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
 
-          <label>{credentialsText}
+          <label htmlFor='username'>{credentialsText}</label>
             <input
+              id='username'
               type='text'
               value={this.state.username}
               onChange={this.handleChange('username')} />
-          </label>
-
           <br />
 
+          {emailLabel}
           {emailInput}
           {emailInputBreak}
 
-          <label>Password
+          <label htmlFor='password'>Password</label>
             <input
-              type='text'
+              type='password'
               value={this.state.password}
               onChange={this.handleChange('password')} />
-          </label>
 
           <br />
 

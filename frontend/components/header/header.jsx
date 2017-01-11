@@ -19,17 +19,13 @@ const sessionLinks = (currentUser, logout) => {
   }
 };
 
-const personalGreeting = (currentUser, logout) => (
-  <div>
-    <h1>Welcome {currentUser.username}!</h1>
-    <button onClick={logout}>Logout</button>
-  </div>
-);
-
 const Header = ({ currentUser, logout }) => (
   <nav className='header'>
-    <h1>Share Deals</h1>
-    {sessionLinks(currentUser, logout)}
+    <h1>ShareDeals</h1>
+    <div className='header-right'>
+      <input className='search' type='search' placeholder='  Search deals' />
+      {sessionLinks(currentUser, logout)}
+    </div>
   </nav>
 );
 

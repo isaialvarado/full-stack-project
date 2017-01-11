@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 80px;
+  background-color: black;
+}
+
+.header h1 {
+  font-size: 29px;
+  color: white;
+}
+
+.header-right {
+  display: flex;
+  height: 55%;
+}
+
+.search {
+  background-color: white;
+  border-radius: 4px;
+  margin-right: 23px;
+  width: 300px;
+  border: 2px solid green;
+}
+
+.session-links {
+  display: flex;
+  align-items: center;
+}
+
+.header a {
+  border-radius: 4px;
+  color: white;
+  background-color: darkgreen;
+  padding: 8px 12px;
+  margin: 5px;
+}
