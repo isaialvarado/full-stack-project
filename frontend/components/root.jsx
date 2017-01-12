@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 import { Router, Route, IndexRoute, hashHistory, onEnter } from 'react-router';
-import UserShowContainer from './user_show/user_show_container';
+import UserProfileContainer from './profile/user_profile_container';
+import DealsIndexContainer from './deals/deals_index_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -15,7 +16,8 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={App}>
-          <Route path='users/:userId' component={UserShowContainer} />
+          <IndexRoute component={DealsIndexContainer} />
+          <Route path='users/:userId' component={UserProfileContainer} />
         </Route>
       </Router>
     </Provider>

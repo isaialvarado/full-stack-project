@@ -8,8 +8,10 @@ const Header = ({ currentUser, logout }) => (
     <div className='header-left'>
       <h1>ShareDeals</h1>
     </div>
-    <div className='header-right'>
+    <div className='header-middle'>
       <input className='search' type='search' placeholder='  Search deals' />
+    </div>
+    <div className='header-right'>
       {sessionLinks(currentUser, logout)}
     </div>
   </nav>

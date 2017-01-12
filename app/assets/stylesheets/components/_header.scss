@@ -4,26 +4,32 @@
   align-items: center;
   height: 60px;
   padding: 0 40px;
-  background-color: black;
+  background-color: rgb(4,109,139); //Creator: http://www.colourlovers.com/lover/Beklad/loveNote
 }
 
 .header h1 {
-  font-size: 29px;
+  font-size: 30px;
   color: white;
 }
 
 .header-left {
   display: flex;
   height: 55%;
-  width: 70%;
   justify-content: space-between;
+  align-items: center;
+}
+
+.header-middle {
+  display: flex;
+  height: 55%;
+  width: 100%;
+  justify-content: center;
 }
 
 .header-right {
   display: flex;
   height: 55%;
-  width: 70%;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 @media all and (max-width: 550px) {
@@ -31,11 +37,12 @@
     display: none;
   }
 }
+
 .search {
-  background-color: white;
+  background-color: rgb(232,232,232); //Creator: http://www.colourlovers.com/lover/munsteri/loveNote
   border-radius: 4px;
   margin-right: 23px;
-  border: 2px solid green;
+  border: 2px solid rgb(47,184,172); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
   width: 50%;
 }
 
@@ -44,20 +51,14 @@
   align-items: center;
 }
 
-.header a {
+.header a, .header button {
   border-radius: 4px;
   color: white;
-  background-color: darkgreen;
+  background-color: rgb(47,184,172); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
   padding: 8px 12px;
   margin: 5px;
   white-space: nowrap;
 }
-
-.header button {
-  border-radius: 4px;
-  color: white;
-  background-color: darkgreen;
-  padding: 8px 12px;
-  margin: 5px;
-  white-space: nowrap;
+.header a:hover, .header button:hover {
+  background-color: rgb(147,164,42); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
 }

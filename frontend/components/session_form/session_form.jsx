@@ -74,7 +74,10 @@ class SessionForm extends React.Component {
 
           <input type='submit' value={formType} />
         </form>
-        <input type='submit'
+        <br />
+        <input
+          className='guestLogIn'
+          type='submit'
           onClick={() => this.props.loginGuest({ username: 'Guest', password: 'password' })}
           value='Guest Log In' />
       </div>

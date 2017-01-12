@@ -30,17 +30,15 @@ class SessionModal extends React.Component {
   }
 
   render() {
-    let welcomeMessage, endMessage;
+    let endMessage;
 
     if (this.state.formType === 'Log In') {
-      welcomeMessage = 'Welcome to ShareDeals';
       endMessage = (
         <span>{'Not a member? '}
           <button onClick={this.handleFormChange('Sign Up')}>Create an Account</button>
         </span>
       );
     } else {
-      welcomeMessage = 'Join ShareDeals';
       endMessage = (
         <span>{'Already have an account? ' }
           <button onClick={this.handleFormChange('Log In')}>Log In</button>
@@ -80,10 +78,10 @@ class SessionModal extends React.Component {
           onRequestClose={this.handleCloseModal}
           shouldCloseOnOverlayClick={true}
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="Share Deals Log In"
         >
         <div className='session'>
-          <h1>{welcomeMessage}</h1>
+          <h1>{this.state.formType}</h1>
           <br />
           <SessionFormContainer formType={this.state.formType} />
           <br/ >
