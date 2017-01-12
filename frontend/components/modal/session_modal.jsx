@@ -15,10 +15,12 @@ class SessionModal extends React.Component {
   }
 
   handleOpenModal() {
+    this.props.receiveErrors();
     this.setState({ showModal: true });
   }
 
   handleCloseModal() {
+    this.props.receiveErrors();
     this.setState({ showModal: false });
   }
 
@@ -65,12 +67,11 @@ class SessionModal extends React.Component {
         bottom: 'null',
         backgroundColor: 'white',
         borderRadius: '9px',
-        width: '400px'
+        width: '450px'
       }
     };
 
     return (
-
       <div>
         <button onClick={this.handleOpenModal}>{this.props.formType}</button>
         <Modal
@@ -84,6 +85,12 @@ class SessionModal extends React.Component {
           <h1>{this.state.formType}</h1>
           <br />
           <SessionFormContainer formType={this.state.formType} />
+          <br/ >
+          <input
+            className='guestLogIn'
+            type='submit'
+            onClick={() => this.props.loginGuest({ username: 'Guest', password: 'password' })}
+            value='Guest Log In' />
           <br/ >
           {endMessage}
         </div>
