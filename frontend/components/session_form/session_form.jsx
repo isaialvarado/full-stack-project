@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,16 +7,6 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // componentDidUpdate() {
-  //   this.redirectIfLoggedIn();
-  // }
-  //
-  // redirectIfLoggedIn() {
-  //   if (this.props.loggedIn) {
-  //     this.props.router.push('/');
-  //   }
-  // }
 
   handleChange(property) {
     return e => this.setState({ [property]: e.target.value });
@@ -31,7 +20,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className='session-errors'>
         {this.props.errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
@@ -85,9 +74,12 @@ class SessionForm extends React.Component {
 
           <input type='submit' value={formType} />
         </form>
+        <input type='submit'
+          onClick={() => this.props.loginGuest({ username: 'Guest', password: 'password' })}
+          value='Guest Log In' />
       </div>
     );
   }
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;

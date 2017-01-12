@@ -1,24 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ExampleApp from '../modal/session_modal';
+import SessionModalContainer from '../modal/session_modal_container';
 
-const sessionLinks = (currentUser, logout) => {
-  if (currentUser) {
-    return (
-      <div className='session-links'>
-        <Link to={`/users/${currentUser.id}`}>{currentUser.username}</Link>
-        <Link to='/' onClick={() => logout()}>Log Out</Link>
-      </div>
-    );
-  } else {
-    return (
-      <div className='session-links'>
-        <ExampleApp formType='Log In' />
-        <ExampleApp formType='Sign Up' />
-      </div>
-    );
-  }
-};
 
 const Header = ({ currentUser, logout }) => (
   <nav className='header'>
@@ -31,5 +14,23 @@ const Header = ({ currentUser, logout }) => (
     </div>
   </nav>
 );
+
+const sessionLinks = (currentUser, logout) => {
+  if (currentUser) {
+    return (
+      <div className='session-links'>
+        <Link to={`/users/${currentUser.id}`}>{currentUser.username}</Link>
+        <Link to='/' onClick={() => logout()}>Log Out</Link>
+      </div>
+    );
+  } else {
+    return (
+      <div className='session-links'>
+        <SessionModalContainer formType='Log In' />
+        <SessionModalContainer formType='Sign Up' />
+      </div>
+    );
+  }
+};
 
 export default Header;
