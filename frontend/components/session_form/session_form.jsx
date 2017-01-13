@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className='session-errors'>
+      <ul id='session-errors'>
         {this.props.errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
@@ -39,6 +39,7 @@ class SessionForm extends React.Component {
           <input
             id='email'
             type='email'
+            required
             value={this.state.email}
             onChange={this.handleChange('email')} />
       );
@@ -49,12 +50,15 @@ class SessionForm extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <h1>{this.props.formType}</h1>
+        <br />
         {this.renderErrors()}
 
         <label htmlFor='username'>{credentialsText}</label>
           <input
             id='username'
             type='text'
+            required
             value={this.state.username}
             onChange={this.handleChange('username')} />
         <br />
@@ -63,7 +67,9 @@ class SessionForm extends React.Component {
         {emailInputBreak}
         <label htmlFor='password'>Password</label>
           <input
+            id='password'
             type='password'
+            required
             value={this.state.password}
             onChange={this.handleChange('password')} />
         <br />

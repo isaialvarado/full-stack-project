@@ -32,18 +32,18 @@ class SessionModal extends React.Component {
   }
 
   render() {
-    let endMessage;
+    let toggleFormType;
 
     if (this.state.formType === 'Log In') {
-      endMessage = (
+      toggleFormType = (
         <span>{'Not a member? '}
-          <button onClick={this.handleFormChange('Sign Up')}>Create an Account</button>
+          <button id='toggle-formType-button' onClick={this.handleFormChange('Sign Up')}>Create an Account</button>
         </span>
       );
     } else {
-      endMessage = (
+      toggleFormType = (
         <span>{'Already have an account? ' }
-          <button onClick={this.handleFormChange('Log In')}>Log In</button>
+          <button id='toggle-formType-button' onClick={this.handleFormChange('Log In')}>Log In</button>
         </span>
       );
     }
@@ -81,18 +81,16 @@ class SessionModal extends React.Component {
           isOpen={this.state.showModal}
           contentLabel="Share Deals Log In"
         >
-        <div className='session'>
-          <h1>{this.state.formType}</h1>
-          <br />
+        <div id='session-modal-content'>
           <SessionFormContainer formType={this.state.formType} />
           <br/ >
           <input
-            className='guestLogIn'
+            id='guest-login-button'
             type='submit'
             onClick={() => this.props.loginGuest({ username: 'Guest', password: 'password' })}
             value='Guest Log In' />
           <br/ >
-          {endMessage}
+          {toggleFormType}
         </div>
         </Modal>
       </div>

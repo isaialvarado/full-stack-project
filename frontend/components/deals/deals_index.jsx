@@ -10,7 +10,6 @@ class DealsIndex extends React.Component {
     return (
       <section>
         <h1>Popular Deals</h1>
-        <Link to={`/`}>Create Deal</Link>
       </section>
     );
   }

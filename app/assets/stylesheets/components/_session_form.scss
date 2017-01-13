@@ -1,45 +1,45 @@
-.session {
+#session-modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px 0;
 }
 
-.session button {
-  color: rgb(4,109,139); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
-}
-
-.session h1 {
+#session-modal-content h1 {
   font-size: 30px;
+  text-align: center;
 }
 
-.session form {
+#session-errors {
+  color: red;
+  margin-bottom: 10px;
+  word-wrap: break-word; width: 250px
+}
+
+#session-modal-content form {
   display: flex;
   flex-direction: column;
 }
 
-.session input {
+#session-modal-content input {
   width: 250px;
   height: 28px;
   border: 1px solid lightgray;
   border-radius: 4px;
-  padding-left: 10px;
 }
 
-.guestLogIn {
-  text-align: center;
-  background-color: rgb(147,164,42); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
-  color: white;
-}
-
-.session form input[type='submit'] {
+#session-modal-content form input[type='submit'] {
   text-align: center;
   background-color: rgb(47,184,172); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
   color: white;
 }
 
-.session-errors {
-  color: red;
-  margin-bottom: 10px;
-  word-wrap: break-word; width: 250px
+#guest-login-button {
+  text-align: center;
+  background-color: rgb(147,164,42); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
+  color: white;
+}
+
+#toggle-formType-button {
+  color: rgb(4,109,139); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
 }

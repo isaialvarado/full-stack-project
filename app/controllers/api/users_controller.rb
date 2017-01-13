@@ -2,9 +2,6 @@ class Api::UsersController < ApplicationController
   def show
   end
 
-  def new
-  end
-
   def create
     @user = User.new(user_params)
 

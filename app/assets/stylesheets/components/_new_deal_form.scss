@@ -1,0 +1,23 @@
+#new-deal-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+#new-deal-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+#deal-errors {
+  color: red;
+  margin-bottom: 10px;
+  word-wrap: break-word; width: 250px
+}
+
+#new-deal-form input {
+  width: 250px;
+  height: 28px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}

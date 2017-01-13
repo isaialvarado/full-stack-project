@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { receiveErrors, login } from '../../actions/session_actions';
+import { login } from '../../actions/session_actions';
+import receiveErrors from '../../actions/errors_actions';
 import SessionModal from './session_modal';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    receiveErrors: () => dispatch(receiveErrors([])),
+    receiveErrors: () => dispatch(receiveErrors({ session: [] })),
     loginGuest: user => dispatch(login(user)),
     formType: ownProps.formType
   };

@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { signup, login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ session }) => ({
+const mapStateToProps = ({ session, errors }) => ({
   loggedIn: Boolean(session.currentUser),
-  errors: session.errors,
+  errors: errors.session,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
