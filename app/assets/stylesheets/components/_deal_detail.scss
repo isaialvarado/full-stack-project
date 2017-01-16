@@ -1,6 +1,6 @@
-#deal-detail-container {
+#deal-detail-top {
   width: 600px;
-  height: 700px;
+  height: 500px;
   margin: 0 auto;
   margin-top: 50px;
   border: 1px solid lightgray;
@@ -15,6 +15,37 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+#deal-detail-description {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  padding: 30px 25px;
+}
+
+#deal-detail-description h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+#deal-detail-description p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+#deal-detail-comments {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  padding: 30px 25px;
 }
 
 #deal-detail-user-actions {
@@ -38,7 +69,7 @@
   color: rgb(246,248,238);
 }
 
-#deal-detail-container img {
+#deal-detail-top img {
   object-fit: scale-down;
   width: 300px;
   height: 300px;
@@ -52,11 +83,15 @@
 
 #deal-detail-title {
   margin: 10px 0;
-  word-wrap: break-word; width: 300px
+  font-size: 16px;
+  word-wrap: break-word; width: 300px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #deal-detail-price {
   margin: 15px 0;
+  font-size: 16px;
 }
 
 #buy-now {
