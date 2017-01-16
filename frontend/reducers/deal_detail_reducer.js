@@ -1,23 +1,25 @@
-import { RECEIVE_DEAL, REMOVE_DEAL } from '../actions/deals_actions';
+import { RECEIVE_DEAL, CLEAR_DEAL_DETAIL } from '../actions/deals_actions';
 import { merge } from 'lodash';
 
-const _nullDealDetail = {
+export const _nullDealDetail = Object.freeze({
   id: '',
   title: '',
-  body: '',
+  description: '',
   price: '',
   vendor: '',
   category: '',
   dealUrl: '',
   imageUrl: '',
+  cloudUrl: '',
   thumbs: '',
   totalComments: '',
   createdAt: '',
   updatedAt: '',
   author: '',
+  authorId: '',
   comments: [
   ]
-};
+});
 
 export const dealDetailReducer = (state = _nullDealDetail, action) => {
   Object.freeze(state);
@@ -25,7 +27,7 @@ export const dealDetailReducer = (state = _nullDealDetail, action) => {
   switch (action.type) {
     case RECEIVE_DEAL:
       return action.deal;
-    case REMOVE_DEAL:
+    case CLEAR_DEAL_DETAIL:
       return _nullDealDetail;
     default:
       return state;

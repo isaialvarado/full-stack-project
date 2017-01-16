@@ -1,13 +1,23 @@
 import { connect } from 'react-redux';
-import DealDetail from './new_deal_form';
+import DealDetail from './deal_detail';
+import { fetchDeal, deleteDeal } from '../../actions/deals_actions';
 
-const mapStateToProps = ({ dealDetail, currentUser }) => {
+const mapStateToProps = ({ dealDetail, session }) => {
+
   return {
-    currentUser,
+    currentUser: session.currentUser,
     dealDetail,
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchDeal: dealId => dispatch(fetchDeal(dealId)),
+    deleteDeal: dealId => dispatch(deleteDeal(dealId))
+  };
+};
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(DealDetail);

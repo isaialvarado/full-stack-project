@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
 
   after_initialize :ensure_session_token
-  has_many :deals, foreign_key: :author_id
+  has_many :deals,
+    foreign_key: :author_id,
+    class_name: :Deal,
+    dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.where(

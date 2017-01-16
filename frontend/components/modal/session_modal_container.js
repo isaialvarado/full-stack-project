@@ -5,7 +5,7 @@ import SessionModal from './session_modal';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    receiveErrors: () => dispatch(receiveErrors({ session: [] })),
+    clearErrors: () => dispatch(receiveErrors({ session: [] })),
     loginGuest: user => dispatch(login(user)),
     formType: ownProps.formType
   };

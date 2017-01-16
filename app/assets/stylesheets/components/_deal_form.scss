@@ -1,0 +1,46 @@
+#deal-form-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 50px 100px;
+  width: 500px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#deal-form-background {
+  display: flex;
+  justify-content: center;
+}
+
+#deal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#deal-form h1 {
+  align-self: center;
+  font-size: 30px;
+}
+
+#deal-errors {
+  color: red;
+  margin-bottom: 10px;
+  word-wrap: break-word; width: 250px
+}
+
+#deal-form input, #deal-form select, #deal-form textarea {
+  width: 400px;
+  height: 28px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+#deal-form textarea {
+  resize: vertical;
+}
+
+#deal-form input[type='submit'] {
+  text-align: center;
+  background-color: rgb(47,184,172);
+  color: rgb(246,248,238);
+}

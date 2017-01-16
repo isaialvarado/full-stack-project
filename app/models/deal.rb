@@ -1,14 +1,3 @@
-class Deal < ActiveRecord::Base
-  validates :category, :title, :price, :vendor, :description, :deal_url, :author, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
-  validates :description, length: { minimum: 5 }
-  validates :category, inclusion: { in: CATEGORIES }
-  validates :deal_url, url: true
-
-  belongs_to :author, foreign_key: :author_id
-end
-
-
 CATEGORIES = [
   'Apple',
   'Autos',
@@ -40,3 +29,17 @@ CATEGORIES = [
   'TV',
   'Video Games'
 ]
+
+class Deal < ActiveRecord::Base
+  validates :category, :title, :price, :vendor, :description, :deal_url, :author, presence: true
+  validates :price,
+    numericality: { greater_than_or_equal_to: 0 },
+    format: { with: /\A\d+(\.\d{1,2})?\z/ }
+  validates :description, length: { minimum: 5 }
+  validates :deal_url, url: true
+  
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User,
+    inverse_of: :deals
+end

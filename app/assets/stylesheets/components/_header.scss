@@ -4,12 +4,12 @@
   align-items: center;
   height: 60px;
   padding: 0 40px;
-  background-color: rgb(4,109,139); //Creator: http://www.colourlovers.com/lover/Beklad/loveNote
+  background-color: rgb(149,170,97);
 }
 
 #header h1 {
   font-size: 30px;
-  color: white;
+  color: rgb(246,248,238);
 }
 
 #header-left {
@@ -39,10 +39,10 @@
 }
 
 #search {
-  background-color: rgb(232,232,232); //Creator: http://www.colourlovers.com/lover/munsteri/loveNote
+  background-color: rgb(246,248,238);
   border-radius: 4px;
   margin-right: 23px;
-  border: 2px solid rgb(47,184,172); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
+  border: 2px solid rgb(214,230,138);
   width: 50%;
 }
 
@@ -51,14 +51,17 @@
   align-items: center;
 }
 
-#header a, #header button {
+#header a, #header-right button {
   border-radius: 4px;
-  color: white;
-  background-color: rgb(47,184,172); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
+  color: rgb(246,248,238);
   padding: 8px 12px;
   margin: 5px;
   white-space: nowrap;
+  border: 1px solid rgb(214,230,138);
 }
-#header a:hover, #header button:hover {
-  background-color: rgb(147,164,42); //http://www.colourlovers.com/lover/Tzadkiel/loveNote
+#header a:hover, #header-right button:hover {
+  background-color: rgb(214,230,138);
+  color: rgb(137,151,82);
 }
+
+//rgb colors from //http://www.colourlovers.com/palette/154705/Panda_vs_Bamboo

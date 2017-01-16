@@ -18,3 +18,7 @@ npm-debug.log
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+/config/cloudinary.yml

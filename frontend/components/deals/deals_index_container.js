@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
+import { fetchDeals } from '../../actions/deals_actions';
 import DealsIndex from './deals_index';
+import { dealsArray } from '../../reducers/selectors';
+
+const mapStateToProps = (state) => {
+  return {
+    deals: dealsArray(state)
+  };
+};
 
 const mapDispatchToProps = (dispatch, { location }) => {
-  // const pathname = location.pathname.slice(1);
-  // const processForm = (pathname === 'login') ? login : signup;
-
   return {
-  //   processForm: user => dispatch(processForm(user)),
-  //   logout: () => dispatch(logout()),
-  //   pathname
+    fetchDeals: () => dispatch(fetchDeals()),
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(DealsIndex);

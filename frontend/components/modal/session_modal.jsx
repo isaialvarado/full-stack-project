@@ -15,18 +15,18 @@ class SessionModal extends React.Component {
   }
 
   handleOpenModal() {
-    this.props.receiveErrors();
+    this.props.clearErrors();
     this.setState({ showModal: true });
   }
 
   handleCloseModal() {
-    this.props.receiveErrors();
+    this.props.clearErrors();
     this.setState({ showModal: false });
   }
 
   handleFormChange(formType) {
     return () => {
-      this.props.receiveErrors();
+      this.props.clearErrors();
       this.setState({ formType });
     };
   }
