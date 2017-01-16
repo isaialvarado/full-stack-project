@@ -1,20 +1,15 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
+import { fetchProfile } from '../../actions/user_profile_actions';
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser,
-  loggedIn: Boolean(session.currentUser),
-  errors: session.errors,
+const mapStateToProps = ({ userProfile }) => ({
+  userProfile
 });
 
-const mapDispatchToProps = (dispatch, { location }) => {
-  // const pathname = location.pathname.slice(1);
-  // const processForm = (pathname === 'login') ? login : signup;
+const mapDispatchToProps = (dispatch) => {
 
   return {
-  //   processForm: user => dispatch(processForm(user)),
-  //   logout: () => dispatch(logout()),
-  //   pathname
+    fetchProfile: userId => dispatch(fetchProfile(userId))
   };
 };
 

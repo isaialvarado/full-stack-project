@@ -9,8 +9,8 @@ class DealsIndex extends React.Component {
   render () {
     const deals =
       this.props.deals.map(deal => (
-        <div className='index-item-container'>
-          <div key={deal.id} className='index-item' onClick={() => this.props.router.push(`/${deal.id}`)}>
+        <div key={deal.id} className='index-item-container'>
+          <div className='index-item' onClick={() => this.props.router.push(`/${deal.id}`)}>
             <div className='index-item-img-and-vendor'>
               <img src={deal.cloudUrl} />
               <h3 className='index-item-vendor'>{deal.vendor}</h3>

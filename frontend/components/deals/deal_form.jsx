@@ -9,7 +9,7 @@ class DealForm extends React.Component {
       description: props.deal.description,
       price: props.deal.price,
       deal_url: props.deal.dealUrl,
-      image_url: props.deal.imageUrl,
+      image_url: props.deal.imageUrl || '',
       category: props.deal.category,
       vendor: props.deal.vendor
     };
