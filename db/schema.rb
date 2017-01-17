@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115234246) do
+ActiveRecord::Schema.define(version: 20170116213804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20170115234246) do
   end
 
   add_index "deals", ["author_id"], name: "index_deals_on_author_id", using: :btree
+
+  create_table "thumbs", force: :cascade do |t|
+    t.integer  "value",      null: false
+    t.integer  "user_id",    null: false
+    t.integer  "deal_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

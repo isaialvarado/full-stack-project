@@ -40,7 +40,7 @@ class DealDetail extends React.Component {
             <div id='deal-detail-user-actions'>
               {authorActions}
               <div id='deal-detail-stats'>
-                <h2>thumbs</h2>
+                <h2>thumbs {deal.thumbs}</h2>
                 <h2>comments</h2>
               </div>
             </div>

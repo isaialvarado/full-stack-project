@@ -1,6 +1,6 @@
 class Api::DealsController < ApplicationController
   def index
-    @deals = Deal.all
+    @deals = Deal.all.includes(:thumbs, :author)
   end
 
   def show

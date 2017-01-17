@@ -37,7 +37,8 @@ class Deal < ActiveRecord::Base
     format: { with: /\A\d+(\.\d{1,2})?\z/ }
   validates :description, length: { minimum: 5 }
   validates :deal_url, url: true
-  
+
+  has_many :thumbs, dependent: :destroy
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User,

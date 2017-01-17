@@ -15,3 +15,4 @@ json.(
 
 json.author @deal.author.username
 json.author_id @deal.author.id
+json.thumbs @deal.thumbs.count

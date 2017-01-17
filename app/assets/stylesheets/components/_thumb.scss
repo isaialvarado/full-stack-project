@@ -1,0 +1,29 @@
+.thumb-container {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumb {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.thumbup:hover {
+  background-color: rgb(149,170,97);
+}
+
+.thumbdown:hover {
+  background-color: #CF4647; //http://www.colourlovers.com/palette/1606220/colorful_banaani
+}
+
+.thumb img {
+  padding: 5px;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
