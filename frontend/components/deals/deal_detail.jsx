@@ -46,8 +46,11 @@ class DealDetail extends React.Component {
             </div>
             <img src={deal.cloudUrl} />
             <h1 id='deal-detail-title'>{deal.title}</h1>
-            <h2 id='deal-detail-price'>${deal.price} at {deal.vendor}</h2>
-            <a id='buy-now' href={deal.dealUrl}>Buy Now</a>
+            <h2 id='deal-detail-price-and-vendor'>
+              <span id='deal-detail-price'>${deal.price}</span>
+              <span id='deal-detail-vendor'> at {deal.vendor}</span>
+            </h2>
+            <a id='see-deal' href={deal.dealUrl}>See Deal</a>
           </div>
         </section>
         <div id='deal-detail-description'>

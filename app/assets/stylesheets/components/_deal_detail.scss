@@ -1,6 +1,5 @@
 #deal-detail-top {
   width: 600px;
-  height: 500px;
   margin: 0 auto;
   margin-top: 50px;
   border: 1px solid lightgray;
@@ -89,19 +88,28 @@
   font-weight: bold;
 }
 
-#deal-detail-price {
+#deal-detail-price-and-vendor {
   margin: 15px 0;
   font-size: 16px;
 }
 
-#buy-now {
-  background-color: rgb(47,184,172);
+#deal-detail-price {
+  font-size: 20px;
+  color: rgb(149,170,97);
+}
+
+#deal-detail-vendor {
+  font-style: italic;
+  color: gray;
+}
+
+#see-deal {
+  background-color: rgb(149,170,97);
   color: rgb(246,248,238);
   font-size: 26px;
   font-weight: bolder;
   border-radius: 4px;
   padding: 10px 80px;
-  margin-bottom: 20px;
   border: 1px solid lightgray;
 }
 

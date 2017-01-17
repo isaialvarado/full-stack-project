@@ -1,5 +1,4 @@
 class Api::ThumbsController < ApplicationController
-
   def create
     @thumb = Thumb.new(thumb_params)
 
