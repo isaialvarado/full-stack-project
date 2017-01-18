@@ -16,9 +16,9 @@ export const receiveDeal = deal => ({
   deal
 });
 
-export const removeDeal = dealId => ({
+export const removeDeal = deal => ({
   type: REMOVE_DEAL,
-  dealId
+  deal
 });
 
 export const fetchDeals = () => dispatch => (
@@ -44,8 +44,5 @@ export const updateDeal = deal => dispatch => (
 );
 
 export const deleteDeal = dealId => dispatch => (
-  DealsAPIUtil.deleteDeal(dealId).then(
-    deals => dispatch(receiveDeals(deals)),
-    errors => dispatch(receiveErrors({ deal: errors.responseJSON }))
-  )
+  DealsAPIUtil.deleteDeal(dealId).then(deal => dispatch(removeDeal(deal)))
 );

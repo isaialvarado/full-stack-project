@@ -15,4 +15,13 @@ json.(
 
 json.author @deal.author.username
 json.author_id @deal.author.id
-json.thumbs @deal.thumbs.count
+json.thumbs @deal.thumbs.sum(:value)
+json.thumb_data do
+  if @thumb
+    json.id @thumb['id']
+    json.value @thumb['value']
+  else
+    json.id nil
+    json.value nil
+  end
+end

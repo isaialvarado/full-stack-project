@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resource :session, only: [:new, :create, :destroy]
     resources :deals, only: [:index, :show, :create, :update, :destroy]
-    resources :thumbs, only: [:create, :update]
+    resources :thumbs, only: [:create, :update, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,22 @@
-export const createThumb = (deal_id, user_id) => (
+export const createThumb = thumb => (
   $.ajax({
     type: 'POST',
     url: 'api/thumbs',
-    data: { thumb: { deal_id, user_id } }
+    data: { thumb }
+  })
+);
+
+export const updateThumb = thumb => (
+  $.ajax({
+    type: 'PATCH',
+    url: `api/thumbs/${thumb.id}`,
+    data: { thumb: { value: thumb.value } }
+  })
+);
+
+export const deleteThumb = thumbId => (
+  $.ajax({
+    type: 'DELETE',
+    url: `api/thumbs/${thumbId}`,
   })
 );

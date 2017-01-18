@@ -3,9 +3,12 @@ import { fetchDeals } from '../../actions/deals_actions';
 import DealsIndex from './deals_index';
 import { dealsArray } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ deals, session}) => {
+  const currentUserId = session.currentUser ? session.currentUser.id : null;
+
   return {
-    deals: dealsArray(state)
+    deals: dealsArray(deals),
+    currentUserId
   };
 };
 

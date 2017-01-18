@@ -68,7 +68,7 @@
   color: rgb(246,248,238);
 }
 
-#deal-detail-top img {
+#deal-detail-image {
   object-fit: scale-down;
   width: 300px;
   height: 300px;
@@ -78,6 +78,13 @@
 #deal-detail-stats {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+#deal-detail-stats img {
+  padding-right: 5px;
+  width: 22px;
+  height: 22px;
 }
 
 #deal-detail-title {
@@ -86,6 +93,7 @@
   word-wrap: break-word; width: 300px;
   text-align: center;
   font-weight: bold;
+  color: #7B3F00;
 }
 
 #deal-detail-price-and-vendor {
@@ -108,7 +116,6 @@
   color: rgb(246,248,238);
   font-size: 26px;
   font-weight: bolder;
-  border-radius: 4px;
   padding: 10px 80px;
   border: 1px solid lightgray;
 }

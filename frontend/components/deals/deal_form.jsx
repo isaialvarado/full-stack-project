@@ -159,8 +159,9 @@ class DealForm extends React.Component {
             <br />
 
             <label htmlFor='dealUrl'>Deal URL</label>
-              <textarea
+              <input
                 id='dealUrl'
+                type='text'
                 placeholder='http:// or https://'
                 required
                 value={this.state.deal_url}
@@ -168,8 +169,9 @@ class DealForm extends React.Component {
             <br />
 
             <label htmlFor='imageUrl'>Image URL (Optional)</label>
-              <textarea
+              <input
                 id='imageUrl'
+                type='text'
                 value={this.state.image_url}
                 onChange={this.handleChange('image_url')} />
             <br />

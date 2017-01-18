@@ -1,10 +1,43 @@
 class Api::DealsController < ApplicationController
   def index
-    @deals = Deal.all.includes(:thumbs, :author)
+    @deals = Deal.all
+    deal_ids = @deals.pluck(:id)
+
+    @thumb_sums =
+      Thumb
+        .select(:deal_id)
+        .where(deal_id: deal_ids)
+        .group(:deal_id)
+        .sum(:value)
+
+    if logged_in?
+      @thumb_values =
+        current_user.thumbs
+          .select(:deal_id)
+          .where(deal_id: deal_ids)
+          .group(:deal_id)
+          .sum(:value)
+
+      @thumb_ids =
+        current_user.thumbs
+          .select(:deal_id)
+          .where(deal_id: deal_ids)
+          .group(:deal_id)
+          .sum(:id)
+    else
+      @thumb_values = {}
+      @thumb_ids = {}
+    end
   end
 
   def show
     @deal = Deal.find(params[:id])
+
+    if logged_in?
+      @thumb = current_user.thumbs.where(deal_id: @deal.id).as_json.first
+    else
+      @thumb = {}
+    end
   end
 
   def create

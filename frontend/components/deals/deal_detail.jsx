@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { DetailThumbContainer } from '../thumbs/thumb_container';
 
 class DealDetail extends React.Component {
   componentDidMount() {
@@ -7,7 +8,8 @@ class DealDetail extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.params.dealId !== newProps.params.dealId) {
+    if (this.props.params.dealId !== newProps.params.dealId
+        || this.props.currentUserId !== newProps.currentUserId) {
       this.props.fetchDeal(newProps.params.dealId);
     }
   }
@@ -40,17 +42,20 @@ class DealDetail extends React.Component {
             <div id='deal-detail-user-actions'>
               {authorActions}
               <div id='deal-detail-stats'>
-                <h2>thumbs {deal.thumbs}</h2>
+                <img
+                  src='https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png' />
+                <span>{deal.thumbs}</span>
                 <h2>comments</h2>
               </div>
             </div>
-            <img src={deal.cloudUrl} />
+            <img id='deal-detail-image' src={deal.cloudUrl} />
             <h1 id='deal-detail-title'>{deal.title}</h1>
             <h2 id='deal-detail-price-and-vendor'>
               <span id='deal-detail-price'>${deal.price}</span>
               <span id='deal-detail-vendor'> at {deal.vendor}</span>
             </h2>
             <a id='see-deal' href={deal.dealUrl}>See Deal</a>
+            <DetailThumbContainer dealId={deal.id} thumbData={deal.thumbData} />
           </div>
         </section>
         <div id='deal-detail-description'>

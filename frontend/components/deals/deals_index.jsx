@@ -1,34 +1,20 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
-import Thumb from './thumbs';
-
-const DealsIndexItem = ({ deal, router }) => (
-  <div key={deal.id} className='index-item-container'>
-    <div className='index-item' onClick={() => router.push(`/${deal.id}`)}>
-      <div className='index-item-img-and-vendor'>
-        <img src={deal.cloudUrl} />
-        <h3 className='index-item-vendor'>{deal.vendor}</h3>
-      </div>
-      <h2 className='index-item-title'>{deal.title}</h2>
-      <h1 className='index-item-price'>${deal.price}</h1>
-    </div>
-    <div className='index-item-stats'>
-      <Thumb thumbs={deal.thumbs} />
-      <div className='comments-container'>
-        <h4>Comments</h4>
-      </div>
-    </div>
-  </div>
-);
+import DealsIndexItem from './deals_index_item';
 
 class DealsIndex extends React.Component {
   componentDidMount() {
     this.props.fetchDeals();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.currentUserId !== newProps.currentUserId) {
+      this.props.fetchDeals();
+    }
+  }
+
   render () {
     const deals = this.props.deals.map(deal => (
-      <DealsIndexItem deal={deal} router={this.props.router} key={deal.id} />
+      <DealsIndexItem deal={deal} key={deal.id} />
     ));
 
     return (
@@ -42,4 +28,4 @@ class DealsIndex extends React.Component {
   }
 }
 
-export default withRouter(DealsIndex);
+export default DealsIndex;

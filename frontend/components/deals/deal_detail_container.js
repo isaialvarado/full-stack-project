@@ -3,7 +3,6 @@ import DealDetail from './deal_detail';
 import { fetchDeal, deleteDeal } from '../../actions/deals_actions';
 
 const mapStateToProps = ({ dealDetail, session }) => {
-
   return {
     currentUser: session.currentUser,
     dealDetail,

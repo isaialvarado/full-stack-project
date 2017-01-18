@@ -1,29 +1,42 @@
-.thumb-container {
+.neutralthumb, .thumbDown, .thumbUp {
   width: 50%;
-  text-align: center;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
 }
 
-.thumb {
-  width: 50%;
+.thumbDown {
+  background-color: #FFC0CB;
+}
+
+.thumbUp {
+  background-color: #D0F0C0;
+}
+
+.thumbs {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  width: 100%;
 }
 
-.thumbup:hover {
-  background-color: rgb(149,170,97);
+.thumbs img {
+  padding: 10px;
+  width: 22px;
+  height: 22px;
 }
 
-.thumbdown:hover {
-  background-color: #CF4647; //http://www.colourlovers.com/palette/1606220/colorful_banaani
+.thumbs figure {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.thumb img {
-  padding: 5px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
+.thumbs figure:first-child {
+  padding-right: 20px;
+}
+
+.thumbs figcaption {
+  font-size: 12px;
 }
