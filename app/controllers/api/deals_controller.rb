@@ -15,6 +15,13 @@ class Api::DealsController < ApplicationController
         .group(:deal_id)
         .sum(:value)
 
+    @comment_counts =
+      Comment
+        .select(:deal_id)
+        .where(deal_id: deal_ids)
+        .group(:deal_id)
+        .count
+
     if logged_in?
       @thumb_values =
         current_user.thumbs
@@ -43,6 +50,10 @@ class Api::DealsController < ApplicationController
     else
       @thumb = {}
     end
+
+    comment_query = Comment.joins(:author).where(deal_id: @deal.id)
+    @total_comments = comment_query.count
+    @comments = comment_query.as_json
   end
 
   def create

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
   has_many :thumbs, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :deals,
     foreign_key: :author_id,
     class_name: :Deal,

@@ -21,7 +21,8 @@ class DealsIndexItem extends React.Component {
         <div className='index-item-stats'>
           <ThumbContainer thumbs={this.props.deal.thumbs} dealId={this.props.deal.id} thumbData={this.props.deal.thumbData} />
           <div className='comments-container'>
-            <h4>Comments</h4>
+            <img src='https://res.cloudinary.com/ssb64/image/upload/v1484767766/images_wvzpwm_wq5btl.png' />
+            <span>{this.props.deal.totalComments}</span>
           </div>
         </div>
       </div>

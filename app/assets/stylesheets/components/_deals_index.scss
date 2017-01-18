@@ -84,6 +84,18 @@
 
 .comments-container {
   width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-left: 1px solid lightgray;
+}
+
+.comments-container img {
+  padding: 10px;
+  width: 21px;
+  height: 21px;
+}
+
+.comments-container img:hover {
+  cursor: pointer
 }

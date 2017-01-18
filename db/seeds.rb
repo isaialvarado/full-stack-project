@@ -14,11 +14,9 @@ SEED_CATEGORIES = [
   'Entertainment',
   'Grocery',
   'Health & Beauty',
-  'Home & Home Improvement',
   'Movies',
   'Office & School Supplies',
   'Other',
-  'Pets',
   'Phones',
   'Restaurants',
   'Services',
@@ -111,5 +109,16 @@ Thumb.create(thumbs)
 #     author_id: 1,
 #     cloud_url: "https://res.cloudinary.com/ssb64/image/upload/v1484525873/su9y03xs5urerm80t3q2.jpg",
 #     image_url: "https://images-na.ssl-images-amazon.com/images/I/41dIKJQ53cL._AC_SX215_.jpg"
-#   }
+#   },
+#   {
+#   category: "Health & Beauty",
+#   title: '',
+#   price: Faker::Commerce.price,
+#   vendor: Faker::Company.name,
+#   description: "Amazon Dot",
+#   deal_url: "https://www.amazon.com/All-New-Amazon-Echo-Dot-Add-Alexa-To-Any-Room/dp/B01DFKC2SO",
+#   author_id: 1,
+#   cloud_url: "https://res.cloudinary.com/ssb64/image/upload/v1484521598/umn0pr2erlwyik552laz.jpg",
+#   image_url: "https://images-na.ssl-images-amazon.com/images/I/51puyU9501L._SY300_.jpg"
+# },
 # ]

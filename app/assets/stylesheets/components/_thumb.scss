@@ -26,6 +26,10 @@
   height: 22px;
 }
 
+.thumbs img:hover {
+  cursor: pointer
+}
+
 .thumbs figure {
   margin-top: 20px;
   display: flex;

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :deals, only: [:index, :show, :create, :update, :destroy]
     resources :thumbs, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :update]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

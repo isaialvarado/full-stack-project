@@ -1,11 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { DetailThumbContainer } from '../thumbs/thumb_container';
+import CommentsIndex from '../comments/comments_index';
 
 class DealDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.mainThumbImage = this.mainThumbImage.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchDeal(this.props.params.dealId);
-    this.mainThumbImage = this.mainThumbImage.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -54,7 +59,8 @@ class DealDetail extends React.Component {
                 <img
                   src={this.mainThumbImage()} />
                 <span>{deal.thumbs}</span>
-                <h2>comments</h2>
+                <img src='https://res.cloudinary.com/ssb64/image/upload/v1484767766/images_wvzpwm_wq5btl.png' />
+                <span>{deal.totalComments}</span>
               </div>
             </div>
             <img id='deal-detail-image' src={deal.cloudUrl} />
@@ -72,11 +78,7 @@ class DealDetail extends React.Component {
           <br />
           <p>{deal.description}</p>
         </div>
-        <div id='deal-detail-comments'>
-          <h1>Comments</h1>
-          <br />
-          <p></p>
-        </div>
+        <CommentsIndex comments={deal.comments}/>
       </div>
     );
   }

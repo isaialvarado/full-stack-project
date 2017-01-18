@@ -6,11 +6,9 @@ CATEGORIES = [
   'Entertainment',
   'Grocery',
   'Health & Beauty',
-  'Home & Home Improvement',
   'Movies',
   'Office & School Supplies',
   'Other',
-  'Pets',
   'Phones',
   'Restaurants',
   'Services',
@@ -31,6 +29,7 @@ class Deal < ActiveRecord::Base
   validates :category, inclusion: { in: CATEGORIES }
 
   has_many :thumbs, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User,

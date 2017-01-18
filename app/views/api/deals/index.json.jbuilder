@@ -6,5 +6,6 @@
       json.value @thumb_values[deal.id]
       json.id @thumb_ids[deal.id]
     end
+    json.total_comments (@comment_counts[deal.id] || 0)
   end
 end
