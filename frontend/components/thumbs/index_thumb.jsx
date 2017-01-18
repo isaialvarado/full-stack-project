@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Thumb extends React.Component {
+class IndexThumb extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hover: false };
@@ -9,6 +9,7 @@ class Thumb extends React.Component {
     this.handleThumbClick = this.handleThumbClick.bind(this);
     this.thumbsUpImage = this.thumbsUpImage.bind(this);
     this.thumbsDownImage = this.thumbsDownImage.bind(this);
+    this.mainThumbImage = this.mainThumbImage.bind(this);
   }
 
   mouseEnter(e) {
@@ -54,6 +55,14 @@ class Thumb extends React.Component {
     }
   }
 
+  mainThumbImage() {
+    if (this.props.thumbs >= 0) {
+      return 'https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png';
+    } else {
+      return 'https://res.cloudinary.com/ssb64/image/upload/v1484614682/down_kf5srn_tffzxt.png';
+    }
+  }
+
   render() {
     let thumbType;
     switch (this.props.thumbData.value) {
@@ -84,7 +93,7 @@ class Thumb extends React.Component {
       thumb = (
         <div className='thumbs'>
           <img
-            src='https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png' />
+            src={this.mainThumbImage()} />
           <span>{this.props.thumbs}</span>
         </div>
       );
@@ -100,4 +109,4 @@ class Thumb extends React.Component {
   }
 }
 
-export default Thumb;
+export default IndexThumb;

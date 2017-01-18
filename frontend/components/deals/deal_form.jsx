@@ -80,18 +80,11 @@ class DealForm extends React.Component {
   render() {
     const formType = this.props.formType;
     const CATEGORIES = [
-      'Apple',
-      'Autos',
       'Bags & Luggage',
       'Books & Magazines',
-      'Children',
       'Clothing, Shoes & Accessories',
       'Computers',
-      'Education',
       'Entertainment',
-      'Finance',
-      'Flowers & Gifts',
-      'Freebies',
       'Grocery',
       'Health & Beauty',
       'Home & Home Improvement',
@@ -101,13 +94,11 @@ class DealForm extends React.Component {
       'Pets',
       'Phones',
       'Restaurants',
-      'Seasonal',
       'Services',
       'Shoes',
       'Sporting Goods',
       'Tech & Electronics',
       'Travel',
-      'TV',
       'Video Games'
     ];
 

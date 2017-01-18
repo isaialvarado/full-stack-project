@@ -7,18 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 SEED_CATEGORIES = [
-  'Apple',
-  'Autos',
   'Bags & Luggage',
   'Books & Magazines',
-  'Children',
   'Clothing, Shoes & Accessories',
   'Computers',
-  'Education',
   'Entertainment',
-  'Finance',
-  'Flowers & Gifts',
-  'Freebies',
   'Grocery',
   'Health & Beauty',
   'Home & Home Improvement',
@@ -28,13 +21,11 @@ SEED_CATEGORIES = [
   'Pets',
   'Phones',
   'Restaurants',
-  'Seasonal',
   'Services',
   'Shoes',
   'Sporting Goods',
   'Tech & Electronics',
   'Travel',
-  'TV',
   'Video Games'
 ]
 
@@ -62,7 +53,15 @@ def random_deal
     description: Faker::Lorem.paragraphs(rand(2..4)).join('\n'),
     deal_url: 'https://www.amazon.com/',
     cloud_url: Faker::Placeholdit.image('300x300', 'png'),
-    author_id: 1,
+    author_id: (1..100).to_a.sample,
+  }
+end
+
+def random_thumb
+  {
+    deal_id: (1..100).to_a.sample,
+    user_id: (1..40).to_a.sample,
+    value: [-1, 1, 1, 1].sample
   }
 end
 
@@ -76,6 +75,19 @@ User.create(users)
 deals = []
 100.times { deals.push(random_deal) }
 Deal.create(deals)
+
+thumbs = []
+id_pairs = []
+(25 * 70).times do
+  thumb = random_thumb
+  id_pair = [thumb[:user_id], thumb[:deal_id]]
+  unless id_pairs.include?(id_pair)
+    id_pairs << id_pair
+    thumbs << thumb
+  end
+end
+
+Thumb.create(thumbs)
 
 # deals = [
 #   {

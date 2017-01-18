@@ -1,6 +1,11 @@
 class Api::DealsController < ApplicationController
   def index
-    @deals = Deal.all
+    @deals = Deal
+      .joins('LEFT JOIN thumbs ON deals.id = thumbs.deal_id')
+      .group('deals.id')
+      .having('count (thumbs.id) > 8')
+      .order('count (thumbs.id) DESC')
+
     deal_ids = @deals.pluck(:id)
 
     @thumb_sums =

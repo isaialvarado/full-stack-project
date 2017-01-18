@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createThumb, updateThumb, deleteThumb } from '../../actions/thumbs_actions';
-import Thumb from './thumb';
+import IndexThumb from './index_thumb';
 import DealDetailThumb from './deal_detail_thumb';
 
 const mapStateToProps = ({ session }, ownProps) => {
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
 export const ThumbContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Thumb);
+)(IndexThumb);
 
 export const DetailThumbContainer = connect(
   mapStateToProps,

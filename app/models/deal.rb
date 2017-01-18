@@ -1,16 +1,9 @@
 CATEGORIES = [
-  'Apple',
-  'Autos',
   'Bags & Luggage',
   'Books & Magazines',
-  'Children',
   'Clothing, Shoes & Accessories',
   'Computers',
-  'Education',
   'Entertainment',
-  'Finance',
-  'Flowers & Gifts',
-  'Freebies',
   'Grocery',
   'Health & Beauty',
   'Home & Home Improvement',
@@ -20,13 +13,11 @@ CATEGORIES = [
   'Pets',
   'Phones',
   'Restaurants',
-  'Seasonal',
   'Services',
   'Shoes',
   'Sporting Goods',
   'Tech & Electronics',
   'Travel',
-  'TV',
   'Video Games'
 ]
 
@@ -37,6 +28,7 @@ class Deal < ActiveRecord::Base
     format: { with: /\A\d+(\.\d{1,2})?\z/ }
   validates :description, length: { minimum: 5 }
   validates :deal_url, url: true
+  validates :category, inclusion: { in: CATEGORIES }
 
   has_many :thumbs, dependent: :destroy
   belongs_to :author,

@@ -5,12 +5,21 @@ import { DetailThumbContainer } from '../thumbs/thumb_container';
 class DealDetail extends React.Component {
   componentDidMount() {
     this.props.fetchDeal(this.props.params.dealId);
+    this.mainThumbImage = this.mainThumbImage.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.params.dealId !== newProps.params.dealId
         || this.props.currentUserId !== newProps.currentUserId) {
       this.props.fetchDeal(newProps.params.dealId);
+    }
+  }
+
+  mainThumbImage() {
+    if (this.props.dealDetail.thumbs >= 0) {
+      return 'https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png';
+    } else {
+      return 'https://res.cloudinary.com/ssb64/image/upload/v1484614682/down_kf5srn_tffzxt.png';
     }
   }
 
@@ -43,7 +52,7 @@ class DealDetail extends React.Component {
               {authorActions}
               <div id='deal-detail-stats'>
                 <img
-                  src='https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png' />
+                  src={this.mainThumbImage()} />
                 <span>{deal.thumbs}</span>
                 <h2>comments</h2>
               </div>
