@@ -9,6 +9,7 @@ const CommentsIndex = ({ comments }) => {
 
   return (
     <div id='deal-detail-comments'>
+      <h1>Comments</h1>
       {commentList}
     </div>
   );

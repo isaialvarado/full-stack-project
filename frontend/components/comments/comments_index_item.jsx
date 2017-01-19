@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatDate } from '../../util/date_api_util';
+import { Link } from 'react-router';
 
 class CommentsIndexItem extends React.Component {
   constructor(props) {
@@ -28,48 +29,63 @@ class CommentsIndexItem extends React.Component {
 
   handleSave(e) {
     e.preventDefault();
+    if (this.oldText === this.state.body) {
+      this.setState({ editMode: false });
+      return;
+    }
+
     this.props.updateComment({
       id: this.props.comment.id,
       author_id: this.props.comment.author_id,
       deal_id: this.props.comment.deal_id,
       body: this.state.body
-    });
+    }).then(() => this.setState({ editMode: false}));
   }
 
   render() {
     const comment = this.props.comment;
     let editButton;
-    if (this.props.currentUser && this.props.currentUser.id === comment.author.id) {
-      editButton = <button onClick={this.enableEdit}>Edit</button>;
+    if (this.state.editMode) {
+      editButton = null;
+    } else if (this.props.currentUser && this.props.currentUser.id === comment.author.id) {
+      editButton = <button className='comment-edit-button' onClick={this.enableEdit}>Edit</button>;
     }
 
     let body;
     if (this.state.editMode) {
       body = (
-        <form className='comment-body-edit' onSubmit={this.handleSave}>
+        <form className='comment-edit-form' onSubmit={this.handleSave}>
           <textarea
+            maxLength={300}
             onChange={this.handleChange}
             value={this.state.body} />
-          <input type='submit' value='Save Changes' />
-          <button onClick={this.handleCancel}>Cancel</button>
+          <div className='comment-edit-form-actions'>
+            <input type='submit' value='Save' />
+            <button onClick={this.handleCancel}>Cancel</button>
+          </div>
         </form>
       );
     } else {
-      body = (
-        <div>
-          <p className='comment-body'>{comment.body}</p>
-          {editButton}
-        </div>
-      );
+      body = <p>{comment.body}</p>;
     }
 
     return (
       <div className='comment' key={comment.id}>
         <div className='comment-info'>
-          <span>{comment.author.username} - </span>
-          <span>{formatDate(new Date(comment.updatedAt))}</span>
+          <Link
+            className='comment-author'
+            to={`/users/${comment.author.id}`}>
+            {comment.author.username}
+          </Link>
+          <span
+            className='comment-date'>
+            {formatDate(new Date(comment.updatedAt))}
+          </span>
         </div>
-        {body}
+        <div className='comment-body'>
+          {body}
+          {editButton}
+        </div>
       </div>
     );
   }

@@ -36,5 +36,84 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   background-color: white;
-  padding: 30px 25px;
+  padding: 25px;
+}
+
+#deal-detail-comments > h1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.comment {
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0;
+}
+
+.comment-author {
+  padding-right: 15px;
+}
+
+.comment span {
+  font-size: 13px;
+  color: gray;
+}
+
+.comment-body {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-body p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.comment-author {
+  color: #7B3F00;
+}
+
+.comment-edit-button {
+  background-color: rgb(149,170,97);
+  border-radius: 4px;
+  color: rgb(246,248,238);
+  padding: 2px 6px;
+  border: 1px solid rgb(214,230,138);
+}
+
+.comment-edit-button:hover {
+  background-color: rgb(214,230,138);
+  color: rgb(137,151,82);
+}
+
+.comment-edit-form textarea {
+  border: 1px solid lightgray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  width: 90%;
+}
+
+.comment-edit-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-edit-form-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-edit-form-actions input, .comment-edit-form-actions button {
+  text-align: center;
+  background-color: rgb(149,170,97);
+  border-radius: 4px;
+  color: rgb(246,248,238);
+  padding: 2px 6px;
+  border: 1px solid rgb(214,230,138);
+}
+
+.comment-edit-form-actions input {
+  margin-bottom: 5px;
 }

@@ -46,6 +46,9 @@ export const dealDetailReducer = (state = _nullDealDetail, action) => {
       newState.thumbs -= oldValue;
       return newState;
     case RECEIVE_COMMENT:
+      if (newState.comments[action.comment.id] === undefined) {
+        newState.totalComments += 1;
+      }
       newState.comments[action.comment.id] = action.comment;
       return newState;
     default:
