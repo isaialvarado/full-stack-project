@@ -48,7 +48,7 @@ def random_deal
     title: product_name,
     price: Faker::Commerce.price,
     vendor: Faker::Company.name,
-    description: Faker::Lorem.paragraphs(rand(2..4)).join('\n'),
+    description: Faker::Lorem.paragraphs(rand(2..4)).join(' '),
     deal_url: 'https://www.amazon.com/',
     cloud_url: Faker::Placeholdit.image('300x300', 'png'),
     author_id: (1..100).to_a.sample,
@@ -58,21 +58,28 @@ end
 def random_thumb
   {
     deal_id: (1..100).to_a.sample,
-    user_id: (1..40).to_a.sample,
-    value: [-1, 1, 1, 1].sample
+    user_id: (1..50).to_a.sample,
+    value: [-1, 1, 1, 1, 1].sample
   }
 end
 
-users = [
+def random_comment
+  {
+    author_id: (1..100).to_a.sample,
+    deal_id: (1..100).to_a.sample,
+    body: Faker::Hipster.sentences((1..4).to_a.sample).join(' ')
+  }
+end
+
+main_users = [
   { username: 'Guest', email: 'guestaccount@gmail.com', password: 'password' },
   { username: 'Isai', email: 'isaialvarado@gmail.com', password: 'password' }
 ]
 
-40.times { users.push(random_user) }
-User.create(users)
-deals = []
-100.times { deals.push(random_deal) }
-Deal.create(deals)
+User.create(main_users)
+50.times { User.create(random_user) }
+100.times { Deal.create(random_deal) }
+300.times { Comment.create(random_comment) }
 
 thumbs = []
 id_pairs = []

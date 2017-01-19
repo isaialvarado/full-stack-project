@@ -2,25 +2,27 @@
   width: 650px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: 20px;
-  border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: rgb(214,230,138);
 }
 
 #deal-detail-comment-form textarea {
   width: 100%;
   border: 1px solid rgb(149,170,97);
   background-color: white;
+  resize: vertical;
 }
 
 #deal-detail-comment-form input {
   background-color: rgb(149,170,97);
   border-radius: 4px;
   color: rgb(246,248,238);
-  padding: 8px 12px;
+  padding: 4px 8px;
   border: 1px solid rgb(214,230,138);
+  width: 20%;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #deal-detail-comment-form input:hover {
@@ -91,18 +93,20 @@
   border: 1px solid lightgray;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  width: 90%;
+  width: 100%;
+  resize: vertical;
 }
 
 .comment-edit-form {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .comment-edit-form-actions {
   display: flex;
-  flex-direction: column;
+  margin-top: 10px;
+  justify-content: space-around;
 }
 
 .comment-edit-form-actions input, .comment-edit-form-actions button {
@@ -112,8 +116,11 @@
   color: rgb(246,248,238);
   padding: 2px 6px;
   border: 1px solid rgb(214,230,138);
+  width: 20%;
 }
 
-.comment-edit-form-actions input {
-  margin-bottom: 5px;
+.comment-edit-form-actions input:hover,
+.comment-edit-form-actions button:hover {
+  background-color: rgb(214,230,138);
+  color: rgb(137,151,82);
 }
