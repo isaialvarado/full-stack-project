@@ -1,7 +1,7 @@
 export const createComment = comment => (
   $.ajax({
     type: 'POST',
-    url: 'api/thumbs',
+    url: 'api/comments',
     data: { comment }
   })
 );
@@ -9,7 +9,7 @@ export const createComment = comment => (
 export const updateComment = comment => (
   $.ajax({
     type: 'PATCH',
-    url: `api/thumbs/${comment.id}`,
-    data: { comment }
+    url: `api/comments/${comment.id}`,
+    data: { comment: { body: comment.body } }
   })
 );

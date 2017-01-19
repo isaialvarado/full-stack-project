@@ -5,6 +5,6 @@ export const formatDate = (date) => {
   hours = hours % 12;
   hours = hours ? hours : 12;
   minutes = minutes < 10 ? '0'+ minutes : minutes;
-  let strTime = hours + ':' + minutes + ' ' + ampm;
-  return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+  let strTime = hours + ':' + minutes + ampm;
+  return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear() + " at " + strTime;
 };

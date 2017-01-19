@@ -1,0 +1,40 @@
+#deal-detail-comment-form {
+  width: 650px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: rgb(214,230,138);
+}
+
+#deal-detail-comment-form textarea {
+  width: 100%;
+  border: 1px solid rgb(149,170,97);
+  background-color: white;
+}
+
+#deal-detail-comment-form input {
+  background-color: rgb(149,170,97);
+  border-radius: 4px;
+  color: rgb(246,248,238);
+  padding: 8px 12px;
+  border: 1px solid rgb(214,230,138);
+}
+
+#deal-detail-comment-form input:hover {
+  background-color: rgb(214,230,138);
+  color: rgb(137,151,82);
+}
+
+#deal-detail-comments {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  padding: 30px 25px;
+}

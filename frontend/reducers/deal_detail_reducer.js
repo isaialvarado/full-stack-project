@@ -1,6 +1,7 @@
 import { RECEIVE_DEAL, CLEAR_DEAL_DETAIL } from '../actions/deals_actions';
 import { merge } from 'lodash';
 import { RECEIVE_THUMB, REMOVE_THUMB } from '../actions/thumbs_actions';
+import { RECEIVE_COMMENT } from '../actions/comments_actions';
 
 export const _nullDealDetail = Object.freeze({
   id: '',
@@ -19,13 +20,12 @@ export const _nullDealDetail = Object.freeze({
   updatedAt: '',
   author: '',
   authorId: '',
-  comments: [
-  ]
+  comments: {}
 });
 
 export const dealDetailReducer = (state = _nullDealDetail, action) => {
   Object.freeze(state);
-  const newState = merge({}, state);
+  const newState = merge({}, _nullDealDetail, state);
   switch (action.type) {
     case RECEIVE_DEAL:
       return action.deal;
@@ -44,6 +44,9 @@ export const dealDetailReducer = (state = _nullDealDetail, action) => {
       oldValue = newState.thumbData.value || 0;
       newState.thumbData = { id: null, value: null };
       newState.thumbs -= oldValue;
+      return newState;
+    case RECEIVE_COMMENT:
+      newState.comments[action.comment.id] = action.comment;
       return newState;
     default:
       return state;

@@ -1,5 +1,10 @@
-#deal-detail-top {
+#deal-detail-container {
   width: 600px;
+  margin: 0 auto;
+}
+
+#deal-detail-top {
+  width: 100%;
   margin: 0 auto;
   margin-top: 50px;
   border: 1px solid lightgray;
@@ -17,7 +22,7 @@
 }
 
 #deal-detail-description {
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   border: 1px solid lightgray;
@@ -34,17 +39,6 @@
 #deal-detail-description p {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-}
-
-#deal-detail-comments {
-  width: 600px;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: white;
-  padding: 30px 25px;
 }
 
 #deal-detail-user-actions {

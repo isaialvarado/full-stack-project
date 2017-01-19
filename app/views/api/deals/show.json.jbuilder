@@ -31,13 +31,11 @@ json.total_comments @total_comments
 
 json.comments do
   @comments.each do |comment|
-    json.id comment.id
-    json.body comment.body
-    json.created_at comment.created_at
-    json.updated_at comment.updated_at
-    json.author do
-      json.id comment.author_id
-      json.username comment.username
+    json.set! comment.id do
+      json.(comment, :id, :body, :created_at, :updated_at, :deal_id)
+      json.author do
+        json.(comment.author, :id, :username)
+      end
     end
   end
 end

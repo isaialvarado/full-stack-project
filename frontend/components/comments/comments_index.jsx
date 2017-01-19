@@ -1,23 +1,11 @@
 import React from 'react';
-import { formatDate } from '../../util/date_api_util';
-
-const CommentsIndexItem = ({ comment }) => {
-
-  return (
-    <div className='comment' key={comment.id}>
-      <div className='comment-info'>
-        <span>{comment.author.username}</span>
-        <span>{formatDate(comment.updatedAt)}</span>
-      </div>
-      
-    </div>
-  );
-};
+import CommentsIndexContainer from './comments_index_item_container';
 
 const CommentsIndex = ({ comments }) => {
-  const commentList = comments.map(comment => (
-    <CommentsIndexItem key={comment.id} comment={comment} />
-  ));
+  const commentList = Object.keys(comments).map(key => {
+    let comment = comments[key];
+    return <CommentsIndexContainer key={comment.id} comment={comment} />;
+  });
 
   return (
     <div id='deal-detail-comments'>

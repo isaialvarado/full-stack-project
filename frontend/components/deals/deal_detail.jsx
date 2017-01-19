@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { DetailThumbContainer } from '../thumbs/thumb_container';
+import CommentFormContainer from '../comments/comment_form_container';
 import CommentsIndex from '../comments/comments_index';
 
 class DealDetail extends React.Component {
@@ -50,7 +51,7 @@ class DealDetail extends React.Component {
     }
 
     return (
-      <div>
+      <div id='deal-detail-container'>
         <section id='deal-detail-top'>
           <div id='deal-detail'>
             <div id='deal-detail-user-actions'>
@@ -78,7 +79,8 @@ class DealDetail extends React.Component {
           <br />
           <p>{deal.description}</p>
         </div>
-        <CommentsIndex comments={deal.comments}/>
+        <CommentFormContainer dealId={deal.id} />
+        <CommentsIndex comments={deal.comments || {} } />
       </div>
     );
   }

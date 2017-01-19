@@ -51,9 +51,8 @@ class Api::DealsController < ApplicationController
       @thumb = {}
     end
 
-    comment_query = Comment.joins(:author).where(deal_id: @deal.id)
-    @total_comments = comment_query.count
-    @comments = comment_query.as_json
+    @comments = Comment.includes(:author).where(deal_id: @deal.id)
+    @total_comments = @comments.count
   end
 
   def create
