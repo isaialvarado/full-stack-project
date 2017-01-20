@@ -7,7 +7,7 @@ class DealsIndex extends React.Component {
     if (this.props.location.pathname === '/') {
       this.props.fetchDeals();
     } else {
-      this.props.fetchSearchResults(this.props.search);
+      this.props.fetchSearchResults({ keywords: this.props.search, filter: {} });
     }
     this.props.clearDetail();
   }
