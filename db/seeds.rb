@@ -57,7 +57,7 @@ end
 
 def random_thumb
   {
-    deal_id: (1..100).to_a.sample,
+    deal_id: (1..6).to_a.sample,
     user_id: (1..50).to_a.sample,
     value: [-1, 1, 1, 1, 1].sample
   }
@@ -78,12 +78,78 @@ main_users = [
 
 User.create(main_users)
 50.times { User.create(random_user) }
-100.times { Deal.create(random_deal) }
-300.times { Comment.create(random_comment) }
+# 100.times { Deal.create(random_deal) }
+# 300.times { Comment.create(random_comment) }
+
+
+deals = [
+  {
+    author_id: 1,
+      category: "Books & Magazines",
+      title: "Fine Homebuilding Magazine Subscription",
+      price: 9.99,
+      vendor: "DiscountMags.com",
+      description: "1 or 2 year subscription to Fine Homebuilding Magazine",
+      deal_url: "https://www.discountmags.com/magazine/fine-homebuilding?c=d58ecfeeddcb11e6a53ecab226cfc5390INT&sdtid=9684796&a=slickdeals",
+      cloud_url: "https://static.slickdealscdn.com/attachment/2/8/9/1/1/5129544.attach"
+    },
+    {
+      author_id: 1,
+       category: "Clothing, Shoes & Accessories",
+       title: "Kohl's Cardholders: Carter's Short Sleeve Bodysuits",
+       price: 20.28,
+       vendor: "Kohls.com",
+       description: "Carter’s short sleeve bodysuits",
+       deal_url: "http://www.kohls.com/search.jsp?search=5-pk+bodysuit&submit-search=web-regular&S=1&PPP=60%2F&src=Dr*WCdER2Xg&utm_campaign=297133&utm_medium=affiliate&utm_source=Dr*WCdER2Xg&utm_content=80795&utm_term=2&siteID=Dr.WCdER2Xg-bEnf88VWPD.b_NELP5ejlw",
+       cloud_url: "https://static.slickdealscdn.com/attachment/1/2/2/6/9/8/5/5109900.attach"
+     },
+     {
+       author_id: 1,
+   category: "Entertainment",
+   title: "Monopoly Here & Now Board Game",
+   price: 6,
+   vendor: "ToysRUs.com",
+   description: "Monopoly Here & Now boardgame",
+   deal_url: "http://www.toysrus.com/product/index.jsp?productId=64630126&iradidTRU=221294&camp=aff:TRU:10451:Slickdeals+LLC&irpidTRU=10451&irgwc=1",
+   cloud_url: "https://static.slickdealscdn.com/attachment/1/6/7/9/8/1/2/5123576.attach"
+ },
+ {
+   author_id: 1,
+   category: "Grocery",
+   title: "Prime Members: 72-Count K-Cups (Variety Pack)",
+   price: 26.59,
+   vendor: "Amazon",
+   description: "K-cups",
+   deal_url: "https://www.amazon.com/Keurig-Single-Serve-K-Cup-Variety-Count/dp/B00ZOE5REQ?tag=slicinc-20&ascsubtag=22fd9e6eddda11e6a44d3ea98204674e0INT&th=1",
+   cloud_url: "https://static.slickdealscdn.com/attachment/3/8/0/3/8/5/8/5126212.attach"
+ },
+ {
+   author_id: 1,
+   category: "Health & Beauty",
+   title: "4-Piece Lord & Taylor Brow Shaping Kit",
+   price: 3.37,
+   vendor: "Lord & Taylor",
+   description: "4-piece Lord & Taylor brow shaping kit",
+   deal_url: "http://www.lordandtaylor.com/webapp/wcs/stores/servlet/en/lord-and-taylor/beauty--fragrance/five-piece-gel-and-matte-nail-color-set?site_refer=AFF001&mid=40480&siteID=lw9MynSeamY-0I.6HkxgurXy95fWJ4mZuw",
+   cloud_url: "https://static.slickdealscdn.com/attachment/1/0/6/6/9/4/5125804.attach"
+ },
+ {
+   author_id: 1,
+   category: "Movies",
+   title: "The Iron Giant: Signature Edition (Blu-ray)",
+   price: 8.99,
+   vendor: "Amazon",
+   description: "Blu-ray",
+   deal_url: "https://www.amazon.com/The-Iron-Giant-Blu-ray/dp/B01DJVT53O?tag=slicinc-20&ascsubtag=79f60844ddd711e6b0d236f61dc8940f0INT",
+   cloud_url: "https://static.slickdealscdn.com/attachment/3/8/0/3/8/5/8/5126740.attach"
+ },
+]
+
+Deal.create(deals)
 
 thumbs = []
 id_pairs = []
-(25 * 70).times do
+(25 * 6).times do
   thumb = random_thumb
   id_pair = [thumb[:user_id], thumb[:deal_id]]
   unless id_pairs.include?(id_pair)
@@ -93,39 +159,3 @@ id_pairs = []
 end
 
 Thumb.create(thumbs)
-
-# deals = [
-#   {
-#     category: "Health & Beauty",
-#     title: Faker::Commerce.product_name,
-#     price: Faker::Commerce.price,
-#     vendor: Faker::Company.name,
-#     description: "Amazon Dot",
-#     deal_url: "https://www.amazon.com/All-New-Amazon-Echo-Dot-Add-Alexa-To-Any-Room/dp/B01DFKC2SO",
-#     author_id: 1,
-#     cloud_url: "https://res.cloudinary.com/ssb64/image/upload/v1484521598/umn0pr2erlwyik552laz.jpg",
-#     image_url: "https://images-na.ssl-images-amazon.com/images/I/51puyU9501L._SY300_.jpg"
-#   },
-#   {
-#     category: "Video Games",
-#     title: "Super Mario Odyssey",
-#     price: 59.99,
-#     vendor: "Amazon",
-#     description: "Nintendo Switch Game",
-#     deal_url: "https://www.amazon.com/Super-Mario-Odyssey-Switch/dp/B01MY7GHKJ/ref=sr_1_cc_3?s=aps&ie=UTF8&qid=1484522996&sr=1-3-catcorr&keywords=nintendo+switch",
-#     author_id: 1,
-#     cloud_url: "https://res.cloudinary.com/ssb64/image/upload/v1484525873/su9y03xs5urerm80t3q2.jpg",
-#     image_url: "https://images-na.ssl-images-amazon.com/images/I/41dIKJQ53cL._AC_SX215_.jpg"
-#   },
-#   {
-#   category: "Health & Beauty",
-#   title: '',
-#   price: Faker::Commerce.price,
-#   vendor: Faker::Company.name,
-#   description: "Amazon Dot",
-#   deal_url: "https://www.amazon.com/All-New-Amazon-Echo-Dot-Add-Alexa-To-Any-Room/dp/B01DFKC2SO",
-#   author_id: 1,
-#   cloud_url: "https://res.cloudinary.com/ssb64/image/upload/v1484521598/umn0pr2erlwyik552laz.jpg",
-#   image_url: "https://images-na.ssl-images-amazon.com/images/I/51puyU9501L._SY300_.jpg"
-# },
-# ]
