@@ -1,6 +1,6 @@
 import React from 'react';
 import DealsIndexItem from './deals_index_item';
-import DealsIndexHeader from './deals_index_header';
+import SearchResultsFilter from '../search/filter';
 
 class DealsIndex extends React.Component {
   componentDidMount() {
@@ -13,10 +13,14 @@ class DealsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.location.pathname !== '/search' && newProps.location.pathname === '/search') {
+    const oldPath = this.props.location.pathname;
+    const newPath = newProps.location.pathname;
+    const newUser = (this.props.currentUserId !== newProps.currentUserId);
+
+    if ((oldPath !== '/search' && newPath === '/search') || (newUser && newPath === '/search')) {
       this.props.fetchSearchResults(newProps.search);
     }
-    if (this.props.location.pathname === '/search' && newProps.location.pathname === '/') {
+    if ((oldPath === '/search' && newPath === '/') || (newUser && newPath === '/')) {
       this.props.fetchDeals();
     }
   }
@@ -26,10 +30,23 @@ class DealsIndex extends React.Component {
       <DealsIndexItem deal={deal} key={deal.id} />
     ));
 
+    let headerText, filter;
+    if (this.props.location.pathname === '/search') {
+      if (this.props.search) {
+        headerText = "'" + this.props.search + "' search results";
+      } else {
+        headerText = 'Search Results';
+      }
+      filter = <SearchResultsFilter />;
+    } else {
+      headerText = 'Popular Deals';
+    }
+
     return (
       <section id='index-container'>
-        <DealsIndexHeader path={this.props.location.pathname} />
+        {filter}
         <div id='index'>
+          <h1 className='index-header'>{headerText}</h1>
           {deals}
         </div>
       </section>

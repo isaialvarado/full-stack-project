@@ -1,0 +1,56 @@
+#filter-form-container {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+#filter-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 20px;
+  background-color: white;
+}
+
+#filter-form label {
+  margin-top: 5px;
+  color: #7B3F00;
+}
+
+#filter-form input[type='number'], #filter-form select {
+  display: block;
+  border: 1px solid lightgray;
+  background-color: #f6f8ee;
+  width: 80%;
+  text-align: center;
+}
+
+#filter-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#filter-form-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#filter-apply, #filter-reset {
+  border-radius: 4px;
+  color: rgb(246,248,238);
+  padding: 4px 8px;
+  margin: 5px;
+  white-space: nowrap;
+  border: 1px solid rgb(214,230,138);
+  background-color: rgb(149,170,97);
+}
+
+#filter-apply:hover, #filter-reset:hover {
+  background-color: rgb(214,230,138);
+  color: rgb(137,151,82);
+}
