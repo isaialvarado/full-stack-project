@@ -6,8 +6,6 @@ class DealsIndex extends React.Component {
   componentDidMount() {
     if (this.props.location.pathname === '/') {
       this.props.fetchDeals();
-    } else {
-      this.props.fetchSearchResults({ keywords: this.props.search, filter: {} });
     }
     this.props.clearDetail();
   }
@@ -17,7 +15,7 @@ class DealsIndex extends React.Component {
     const newPath = newProps.location.pathname;
     const newUser = (this.props.currentUserId !== newProps.currentUserId);
 
-    if ((oldPath !== '/search' && newPath === '/search') || (newUser && newPath === '/search')) {
+    if (oldPath !== '/search' && newPath === '/search') {
       this.props.fetchSearchResults({ keywords: newProps.search, filter: {} });
     }
     if ((oldPath === '/search' && newPath === '/') || (newUser && newPath === '/')) {

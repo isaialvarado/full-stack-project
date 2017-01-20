@@ -10,7 +10,7 @@ class Search extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.currentUser !== newProps.currentUser) {
+    if (this.props.currentUser && newProps.currentUser === null) {
       this.setState({ keywords: ''});
     }
   }
