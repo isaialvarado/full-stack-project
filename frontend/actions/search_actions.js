@@ -17,7 +17,7 @@ export const receiveSearch = keywords => dispatch => (
   dispatch(receiveSearchText(keywords))
 );
 
-export const fetchSearchResults = keywords => dispatch => (
-  SearchAPIUtil.fetchSearchResults(keywords)
+export const fetchSearchResults = searchData => dispatch => (
+  SearchAPIUtil.fetchSearchResults(searchData)
     .then(deals => dispatch(receiveSearchResults(deals)))
 );

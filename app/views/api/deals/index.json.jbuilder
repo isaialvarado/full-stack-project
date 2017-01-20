@@ -1,4 +1,7 @@
 @deals.each do |deal|
+  next if @category && @category != 'All' && @category != deal.category
+  next if @minRating && @thumb_sums[deal.id] && @minRating > @thumb_sums[deal.id]
+
   json.set! deal.id do
     json.(deal, :id, :title, :price, :vendor, :cloud_url)
     json.thumbs (@thumb_sums[deal.id] || 0)

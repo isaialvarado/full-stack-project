@@ -1,6 +1,6 @@
 import React from 'react';
 import DealsIndexItem from './deals_index_item';
-import SearchResultsFilter from '../search/filter';
+import FilterContainer from '../search/filter_container';
 
 class DealsIndex extends React.Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class DealsIndex extends React.Component {
     const newUser = (this.props.currentUserId !== newProps.currentUserId);
 
     if ((oldPath !== '/search' && newPath === '/search') || (newUser && newPath === '/search')) {
-      this.props.fetchSearchResults(newProps.search);
+      this.props.fetchSearchResults({ keywords: newProps.search, filter: {} });
     }
     if ((oldPath === '/search' && newPath === '/') || (newUser && newPath === '/')) {
       this.props.fetchDeals();
@@ -37,7 +37,7 @@ class DealsIndex extends React.Component {
       } else {
         headerText = 'Search Results';
       }
-      filter = <SearchResultsFilter />;
+      filter = <FilterContainer />;
     } else {
       headerText = 'Popular Deals';
     }

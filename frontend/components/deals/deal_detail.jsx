@@ -17,7 +17,7 @@ class DealDetail extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.params.dealId !== newProps.params.dealId
-        || this.props.currentUserId !== newProps.currentUserId) {
+        || this.props.currentUser !== newProps.currentUser) {
       this.props.fetchDeal(newProps.params.dealId);
     }
   }

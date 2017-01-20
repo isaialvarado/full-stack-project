@@ -1,3 +1,10 @@
+@media all and (max-width: 400px) {
+  [id^="filter-"], #filter-form label, #filter-form input, #filter-form div,
+  #filter-form button {
+    display: none;
+  }
+}
+
 #filter-form-container {
   align-self: flex-start;
   display: flex;

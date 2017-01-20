@@ -1,7 +1,7 @@
-export const fetchSearchResults = keywords => (
+export const fetchSearchResults = searchData => (
   $.ajax({
     method: 'GET',
     url: 'api/search',
-    data: { keywords }
+    data: { searchData }
   })
 );

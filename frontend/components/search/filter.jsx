@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchResultsFilter extends React.Component {
+class Filter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,10 @@ class SearchResultsFilter extends React.Component {
   }
 
   handleSubmit() {
-
+    this.props.fetchSearchResults({
+      keywords: this.props.search,
+      filter: this.state
+    });
   }
 
   resetFilter() {
@@ -93,7 +96,7 @@ class SearchResultsFilter extends React.Component {
             {categorySelectInput}
           </div>
           <div id='filter-form-actions'>
-            <input id='filter-apply' value='Apply Filter'type='submit' />
+            <input id='filter-apply' value='Apply Filter' type='submit' />
             <button id='filter-reset' onClick={this.resetFilter}>Reset Filter</button>
           </div>
         </form>
@@ -102,4 +105,4 @@ class SearchResultsFilter extends React.Component {
   }
 }
 
-export default SearchResultsFilter;
+export default Filter;
