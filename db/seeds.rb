@@ -7,25 +7,25 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 SEED_CATEGORIES = [
-  'Bags & Luggage',
   'Books & Magazines',
   'Clothing, Shoes & Accessories',
-  'Computers',
   'Entertainment',
   'Grocery',
   'Health & Beauty',
   'Movies',
   'Office & School Supplies',
   'Other',
-  'Phones',
   'Restaurants',
-  'Services',
-  'Shoes',
   'Sporting Goods',
   'Tech & Electronics',
   'Travel',
   'Video Games'
 ]
+
+User.destroy_all
+Deal.destroy_all
+Thumb.destroy_all
+Comment.destroy_all
 
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)

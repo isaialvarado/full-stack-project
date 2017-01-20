@@ -41,7 +41,7 @@ class IndexThumb extends React.Component {
 
   thumbsUpImage() {
     if (this.props.thumbData.value === 1) {
-      return 'http://res.cloudinary.com/ssb64/image/upload/e_green:51/v1484614684/up_rdsoqf_ebyz6f.png';
+      return 'https://res.cloudinary.com/ssb64/image/upload/e_green:51/v1484614684/up_rdsoqf_ebyz6f.png';
     } else {
       return 'https://res.cloudinary.com/ssb64/image/upload/v1484614684/up_rdsoqf_ebyz6f.png';
     }

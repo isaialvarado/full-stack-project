@@ -32,7 +32,7 @@ class Api::DealsController < ApplicationController
       else
         max_price = params[:searchData][:filter][:maxPrice].to_f
       end
-      
+
       @deals =
         Deal
           .where('title ~* ?', "\\m#{params[:searchData][:keywords]}\\M")
