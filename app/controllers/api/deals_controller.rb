@@ -1,12 +1,60 @@
 class Api::DealsController < ApplicationController
-  def index
-    @deals = Deal
-      .joins('LEFT JOIN thumbs ON deals.id = thumbs.deal_id')
-      .group('deals.id')
-      .having('count (thumbs.id) > 8')
-      .order('count (thumbs.id) DESC')
+  def search
+    if params[:keywords].empty?
+      @deals = Deal.all.limit(50)
+    end
 
     deal_ids = @deals.pluck(:id)
+
+    @thumb_sums =
+      Thumb
+        .select(:deal_id)
+        .where(deal_id: deal_ids)
+        .group(:deal_id)
+        .sum(:value)
+
+    @comment_counts =
+      Comment
+        .select(:deal_id)
+        .where(deal_id: deal_ids)
+        .group(:deal_id)
+        .count
+
+    if logged_in?
+      @thumb_values =
+        current_user.thumbs
+          .select(:deal_id)
+          .where(deal_id: deal_ids)
+          .group(:deal_id)
+          .sum(:value)
+
+      @thumb_ids =
+        current_user.thumbs
+          .select(:deal_id)
+          .where(deal_id: deal_ids)
+          .group(:deal_id)
+          .sum(:id)
+    else
+      @thumb_values = {}
+      @thumb_ids = {}
+    end
+
+    render :index
+  end
+
+  def index
+    @popular_deals =
+      Deal
+        .select('deals.id')
+        .joins(:thumbs)
+        .group('deals.id')
+        .having('sum(thumbs.value) > 8')
+        .order('deals.created_at DESC')
+        .limit(20)
+
+    deal_ids = @popular_deals.pluck(:id)
+
+    @deals = Deal.where(id: deal_ids)
 
     @thumb_sums =
       Thumb
@@ -65,11 +113,12 @@ class Api::DealsController < ApplicationController
           @deal.cloud_url = response['secure_url']
           @deal.cloud_public_id = response['public_id']
         end
-        @deal.save
-        render :show
       rescue
         render json: ["Invalid Image URL"], status: 422
       end
+      @deal.save
+
+      render :show
     else
       render json: @deal.errors.full_messages, status: 422
     end

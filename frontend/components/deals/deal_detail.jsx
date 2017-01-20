@@ -1,8 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import { DetailThumbContainer } from '../thumbs/thumb_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import CommentsIndex from '../comments/comments_index';
+import { formatDate } from '../../util/date_api_util';
 
 class DealDetail extends React.Component {
   constructor(props) {
@@ -75,12 +76,22 @@ class DealDetail extends React.Component {
           </div>
         </section>
         <div id='deal-detail-description'>
-          <h1>Description</h1>
+          <div id='deal-detail-description-header'>
+            <h1>Description</h1>
+            <div>
+              <span>{formatDate(new Date(deal.createdAt))} by </span>
+              <Link
+                className='comment-author'
+                to={`/users/${deal.authorId}`}>
+                {deal.author}
+              </Link>
+            </div>
+          </div>
           <br />
           <p>{deal.description}</p>
         </div>
-        <CommentFormContainer dealId={deal.id} />
         <CommentsIndex comments={deal.comments || {} } />
+        <CommentFormContainer dealId={deal.id} />
       </div>
     );
   }

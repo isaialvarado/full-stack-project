@@ -5,6 +5,7 @@
   flex-direction: column;
   margin-top: 20px;
   border-radius: 5px;
+  margin-bottom: 40px;
 }
 
 #deal-detail-comment-form textarea {
@@ -12,6 +13,7 @@
   border: 1px solid rgb(149,170,97);
   background-color: white;
   resize: vertical;
+  border-radius: 4px;
 }
 
 #deal-detail-comment-form input {
@@ -34,7 +36,6 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 40px;
   border: 1px solid lightgray;
   border-radius: 5px;
   background-color: white;
@@ -106,7 +107,16 @@
 .comment-edit-form-actions {
   display: flex;
   margin-top: 10px;
-  justify-content: space-around;
+  justify-content: center;
+
+}
+
+.comment-edit-form-actions input {
+  margin-right: 10px;
+}
+
+.comment-edit-form-actions button {
+  margin-left: 10px;
 }
 
 .comment-edit-form-actions input, .comment-edit-form-actions button {

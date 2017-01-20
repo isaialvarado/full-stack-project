@@ -4,7 +4,7 @@ import receiveErrors from './errors_actions';
 export const RECEIVE_DEALS = 'RECEIVE_DEALS';
 export const RECEIVE_DEAL = 'RECEIVE_DEAL';
 export const REMOVE_DEAL = 'REMOVE_DEAL';
-export const CLEAR_DEAL_DETAIL = 'REMOVE_DEAL';
+export const CLEAR_DEAL_DETAIL = 'CLEAR_DEAL_DETAIL';
 
 export const receiveDeals = deals => ({
   type: RECEIVE_DEALS,
@@ -20,6 +20,14 @@ export const removeDeal = deal => ({
   type: REMOVE_DEAL,
   deal
 });
+
+export const clearDealDetail = () => ({
+  type: CLEAR_DEAL_DETAIL
+});
+
+export const clearDetail = () => dispatch => (
+  dispatch(clearDealDetail())
+);
 
 export const fetchDeals = () => dispatch => (
   DealsAPIUtil.fetchDeals().then(deals => dispatch(receiveDeals(deals)))

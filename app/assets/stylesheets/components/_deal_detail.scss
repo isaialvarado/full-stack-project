@@ -31,6 +31,17 @@
   padding: 25px;
 }
 
+#deal-detail-description-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#deal-detail-description-header span:first-of-type {
+  font-size: 13px;
+  color: gray;
+}
+
 #deal-detail-description h1 {
   font-weight: bold;
 }

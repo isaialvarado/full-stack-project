@@ -27,7 +27,9 @@ json.thumb_data do
   end
 end
 
-json.total_comments @total_comments
+json.total_comments @total_comments || 0
+
+@comments ||= []
 
 json.comments do
   @comments.each do |comment|

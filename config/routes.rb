@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resource :session, only: [:new, :create, :destroy]
     resources :deals, only: [:index, :show, :create, :update, :destroy]
+    get '/search', :to => 'deals#search'
     resources :thumbs, only: [:create, :update, :destroy]
     resources :comments, only: [:create, :update]
   end

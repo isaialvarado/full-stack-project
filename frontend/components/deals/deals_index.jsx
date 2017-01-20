@@ -4,6 +4,7 @@ import DealsIndexItem from './deals_index_item';
 class DealsIndex extends React.Component {
   componentDidMount() {
     this.props.fetchDeals();
+    this.props.clearDetail();
   }
 
   componentWillReceiveProps(newProps) {

@@ -14,11 +14,13 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     this.props.createComment({
       body: this.state.body,
       author_id: this.props.currentUser.id,
       deal_id: this.props.dealId
-    }).then(() => this.setState({ body: '' }));
+    }).then(() => this.setState({ body: ''}));
+
   }
 
   render() {
@@ -30,6 +32,7 @@ class CommentForm extends React.Component {
           <textarea
             placeholder='Type here to comment'
             required
+            value={this.state.body}
             onChange={this.handleChange} />
           <input
             type='submit'

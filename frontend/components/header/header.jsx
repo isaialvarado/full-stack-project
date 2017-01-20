@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SessionModalContainer from '../modal/session_modal_container';
+import SearchContainer from './search_container';
 
 class Header extends React.Component {
-  render(){
+  render() {
     const sessionLinks = (currentUser, logout) => {
       if (currentUser) {
         return (
@@ -31,7 +32,7 @@ class Header extends React.Component {
           </button>
         </div>
         <div id='header-middle'>
-          <input id='search' type='search' placeholder='  Search deals' />
+          <SearchContainer />
         </div>
         <div id='header-right'>
           {sessionLinks(this.props.currentUser, this.props.logout)}
@@ -40,6 +41,5 @@ class Header extends React.Component {
     );
   }
 }
-
 
 export default withRouter(Header);
