@@ -33,12 +33,14 @@ class Search extends React.Component {
   render() {
     return (
       <div id='search-container'>
-        <input
-          id='search'
-          type='search'
-          value={this.state.keywords}
-          onChange={this.handleChange}
-          placeholder='  Search deals' />
+        <form id='search-form' onSubmit={this.handleSubmit}>
+          <input
+            id='search'
+            type='search'
+            value={this.state.keywords}
+            onChange={this.handleChange}
+            placeholder='  Search deals' />
+        </form>
         <button id='search-submit' onClick={this.handleSubmit}>Search</button>
       </div>
     );

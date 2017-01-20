@@ -66,7 +66,7 @@ class Filter extends React.Component {
     return (
       <div id='filter-form-container'>
         <h1 className='index-header'>Filter</h1>
-        <form id='filter-form' onSubmit={this.handleSubmit}>
+        <form id='filter-form'>
           <div id='filter-options'>
             <label htmlFor='rating'>Min Rating</label>
             <input
@@ -96,7 +96,7 @@ class Filter extends React.Component {
             {categorySelectInput}
           </div>
           <div id='filter-form-actions'>
-            <input id='filter-apply' value='Apply Filter' type='submit' />
+            <input id='filter-apply' onClick={this.handleSubmit} value='Apply Filter' type='submit' />
             <button id='filter-reset' onClick={this.resetFilter}>Reset Filter</button>
           </div>
         </form>
