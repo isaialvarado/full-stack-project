@@ -13,7 +13,7 @@ I enjoy browsing [Slickdeals](https://slickdeals.net/) and have found many good 
 - User-generated deals (CRUD)
 - Up-vote and down-vote deals
 - Comments
-- Search and Filter
+- Search and filter
 
 ###### Screenshot
 
@@ -80,3 +80,7 @@ ShareDeals was designed and implemented in less than two weeks based on a propos
 
 [wireframes]: ./docs/wireframes
 [schema]: ./docs/schema.md
+
+## Colors
+
+Palette by [Beklad](http://www.colourlovers.com/palette/154705/Panda_vs_Bamboo)

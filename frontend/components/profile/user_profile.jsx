@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { formatDate } from '../../util/date_api_util';
 
 class UserProfile extends React.Component {
   componentWillMount() {
@@ -15,23 +16,28 @@ class UserProfile extends React.Component {
   render () {
     const date = new Date(this.props.userProfile.createdAt);
     const deals = this.props.userProfile.deals.map(deal => (
-      <li
-        className='profile-deal'
+      <tr
         key={deal.id}>
-        <Link to={`/${deal.id}`}>{deal.title}</Link>
-        <span>Created: {deal.createdAt}</span>
-      </li>
+        <td><span>{new Date(deal.createdAt).toLocaleDateString()}</span></td>
+        <td><Link to={`/${deal.id}`}>{deal.title}</Link></td>
+      </tr>
     ));
 
     return (
       <div className='profile'>
         <h1>Profile</h1>
-        <h3>{`Username: ${this.props.userProfile.username}`}</h3>
-        <h3>{`Joined: ${date.toLocaleDateString()}`}</h3>
+        <div className='profile-user-data'>
+          <h3>{`Username: ${this.props.userProfile.username}`}</h3>
+          <h3>{`Joined: ${date.toLocaleDateString()}`}</h3>
+        </div>
         <h1>Deals Shared</h1>
-        <ul>
+        <table className='profile-deals'>
+          <tr>
+            <th><span>Date</span></th>
+            <th><span>Title</span></th>
+          </tr>
           {deals}
-        </ul>
+        </table>
       </div>
     );
   }
