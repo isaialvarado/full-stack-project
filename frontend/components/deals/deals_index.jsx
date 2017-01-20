@@ -1,14 +1,22 @@
 import React from 'react';
 import DealsIndexItem from './deals_index_item';
+import DealsIndexHeader from './deals_index_header';
 
 class DealsIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchDeals();
+    if (this.props.location.pathname === '/') {
+      this.props.fetchDeals();
+    } else {
+      this.props.fetchSearchResults(this.props.search);
+    }
     this.props.clearDetail();
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.currentUserId !== newProps.currentUserId) {
+    if (this.props.location.pathname !== '/search' && newProps.location.pathname === '/search') {
+      this.props.fetchSearchResults(newProps.search);
+    }
+    if (this.props.location.pathname === '/search' && newProps.location.pathname === '/') {
       this.props.fetchDeals();
     }
   }
@@ -20,7 +28,7 @@ class DealsIndex extends React.Component {
 
     return (
       <section id='index-container'>
-        <h1 id='index-header'>Popular Deals</h1>
+        <DealsIndexHeader path={this.props.location.pathname} />
         <div id='index'>
           {deals}
         </div>

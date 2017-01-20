@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class Search extends React.Component {
   constructor(props) {
@@ -8,9 +9,21 @@ class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.currentUser !== newProps.currentUser) {
+      this.setState({ keywords: ''});
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.fetchSearchResults(this.state.keywords);
+    this.props.receiveSearch(this.state.keywords);
+
+    if (this.props.location.pathname !== '/search') {
+      this.props.router.push('/search');
+    } else {
+      this.props.fetchSearchResults(this.state.keywords);
+    }
   }
 
   handleChange(e) {
@@ -32,4 +45,4 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);

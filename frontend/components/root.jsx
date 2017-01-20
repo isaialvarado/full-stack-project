@@ -19,6 +19,7 @@ const Root = ({ store }) => {
       <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory}>
         <Route path='/' component={App}>
           <IndexRoute component={DealsIndexContainer} />
+          <Route path='search' component={DealsIndexContainer} />
           <Route path='new-deal' component={DealFormContainer} onEnter={_redirectIfLoggedOut} />
           <Route path='edit-deal/:dealId' component={DealFormContainer} onEnter={_redirectIfLoggedOut} />
           <Route path=':dealId' component={DealDetailContainer} />

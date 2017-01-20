@@ -1,7 +1,9 @@
 class Api::DealsController < ApplicationController
   def search
     if params[:keywords].empty?
-      @deals = Deal.all.limit(50)
+      @deals = Deal.all.order('created_at DESC').limit(50)
+    else
+      @deals = Deal.where('title ~* ?', "\\m#{params[:keywords]}\\M")
     end
 
     deal_ids = @deals.pluck(:id)
