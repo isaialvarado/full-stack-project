@@ -28,14 +28,6 @@ I enjoy browsing [Slickdeals](https://slickdeals.net/) and have found many good 
 - Heroku hosting
 - Cloudinary image hosting via [Cloudinary gem](https://github.com/cloudinary/cloudinary_gem)
 
-###### BCrypt
-
-```ruby
-def password=(password)
-  @password = password
-  self.password_digest = BCrypt::Password.create(password)
-end
-```
 ###### Active Record Query Interface
 ```ruby
 @deals =
@@ -53,23 +45,6 @@ end
 - npm package manager
 - webpack module bundler
 - jQuery
-
-###### Controlled Inputs
-```JavaScript
-handleChange(property) {
-  return e => this.setState({[property]: e.target.value});
-}
-```
-
-###### Ajax request in Redux cycle
-```JavaScript
-export const fetchDeals = () => (
-  $.ajax({
-    method: 'GET',
-    url: 'api/deals'
-  })
-);
-```
 
 ## Project Design
 
