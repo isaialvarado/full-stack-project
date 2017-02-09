@@ -15,7 +15,7 @@ class SessionModal extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-
+    this.props.clearErrors();
     this.setState({
       showModal: newProps.showModal,
       formType: newProps.formType
@@ -23,19 +23,11 @@ class SessionModal extends React.Component {
   }
 
   handleOpenModal() {
-    this.props.clearErrors();
-    this.props.receiveSessionModal({
-      show: true,
-      formType: this.state.formType
-    });
+    this.props.receiveSessionModal({ showModal: true });
   }
 
   handleCloseModal() {
-    this.props.clearErrors();
-    this.props.receiveSessionModal({
-      show: false,
-      formType: this.state.formType
-    });
+    this.props.receiveSessionModal({ showModal: false });
   }
 
   handleFormChange(formType) {

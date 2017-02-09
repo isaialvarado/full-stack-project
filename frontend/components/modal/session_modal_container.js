@@ -6,8 +6,8 @@ import SessionModal from './session_modal';
 const mapStateToProps = ({ session }) => {
 
   return {
-    formType: session.modal.formType,
-    showModal: session.modal.show
+    showModal: session.modal.showModal,
+    formType: session.modal.formType
   };
 };
 

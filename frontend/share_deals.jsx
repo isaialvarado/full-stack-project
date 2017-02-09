@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         session: {
           currentUser: window.currentUser,
-          modal: { show: false, formType: 'Log In' }
+          modal: { showModal: false, formType: 'Log In' }
        }
       }
     );
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.store = store;
   Modal.setAppElement(document.body);
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

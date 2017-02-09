@@ -8,6 +8,12 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.formType != this.props.formType) {
+      this.setState({ username: '', password: '', email: ''});
+    }
+  }
+
   handleChange(property) {
     return e => this.setState({ [property]: e.target.value });
   }

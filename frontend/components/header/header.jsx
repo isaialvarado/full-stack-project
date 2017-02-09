@@ -17,10 +17,10 @@ class Header extends React.Component {
       } else {
         return (
           <div id='session-links'>
-            <button onClick={() => showModal({ show: true, formType: 'Log In' })}>
+            <button onClick={() => showModal({ showModal: true, formType: 'Log In' })}>
               Log In
             </button>
-            <button onClick={() => showModal({ show: true, formType: 'Sign Up' })}>
+            <button onClick={() => showModal({ showModal: true, formType: 'Sign Up' })}>
               Sign Up
             </button>
           </div>
