@@ -1,8 +1,12 @@
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_MODAL_OPTIONS } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const _nullUser = Object.freeze({
-  currentUser: null
+  currentUser: null,
+  modal: {
+    show: true,
+    formType: 'Log In'
+  }
 });
 
 const sessionReducer = (state = _nullUser, action) => {
@@ -10,7 +14,11 @@ const sessionReducer = (state = _nullUser, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
-      return merge({}, _nullUser, { currentUser });
+      let modal = { show: false, formType: 'Log In' };
+      return merge({}, _nullUser, { currentUser }, { modal });
+    case RECEIVE_MODAL_OPTIONS:
+      modal = action.modal;
+      return merge({}, state, { modal });
     default:
       return state;
   }

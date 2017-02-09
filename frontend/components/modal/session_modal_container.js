@@ -1,23 +1,26 @@
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, receiveSessionModal } from '../../actions/session_actions';
 import receiveErrors from '../../actions/errors_actions';
 import SessionModal from './session_modal';
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  let initialState = false;
-  if (ownProps.route) {
-    initialState = ownProps.route.initialState;
-  }
+const mapStateToProps = ({ session }) => {
+
+  return {
+    formType: session.modal.formType,
+    showModal: session.modal.show
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
 
   return {
     clearErrors: () => dispatch(receiveErrors({ session: [] })),
     loginGuest: user => dispatch(login(user)),
-    formType: ownProps.formType || 'Log In',
-    initialState
+    receiveSessionModal: modal => dispatch(receiveSessionModal(modal))
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SessionModal);

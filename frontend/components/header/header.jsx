@@ -5,7 +5,7 @@ import SearchContainer from '../search/search_container';
 
 class Header extends React.Component {
   render() {
-    const sessionLinks = (currentUser, logout) => {
+    const sessionLinks = (currentUser, logout, showModal) => {
       if (currentUser) {
         return (
           <div id='session-links'>
@@ -17,8 +17,12 @@ class Header extends React.Component {
       } else {
         return (
           <div id='session-links'>
-            <SessionModalContainer formType='Log In' />
-            <SessionModalContainer formType='Sign Up' />
+            <button onClick={() => showModal({ show: true, formType: 'Log In' })}>
+              Log In
+            </button>
+            <button onClick={() => showModal({ show: true, formType: 'Sign Up' })}>
+              Sign Up
+            </button>
           </div>
         );
       }
@@ -35,8 +39,13 @@ class Header extends React.Component {
           <SearchContainer currentUser={this.props.currentUser}/>
         </div>
         <div id='header-right'>
-          {sessionLinks(this.props.currentUser, this.props.logout)}
+          {sessionLinks(
+            this.props.currentUser,
+            this.props.logout,
+            this.props.receiveSessionModal
+          )}
         </div>
+        <SessionModalContainer />
       </nav>
     );
   }

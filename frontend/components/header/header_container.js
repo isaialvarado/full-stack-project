@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, receiveSessionModal } from '../../actions/session_actions';
 import Header from './header';
 
 const mapStateToProps = ({ session }) => ({
@@ -8,6 +8,7 @@ const mapStateToProps = ({ session }) => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
+  receiveSessionModal: (options) => dispatch(receiveSessionModal(options))
 });
 
 export default connect(
