@@ -13,6 +13,11 @@ class DealDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchDeal(this.props.params.dealId);
+
+    if (this.props.location.hash === '#deal-detail-comments') {
+      const commentForm = document.getElementById('deal-detail-comments');
+      commentForm.scrollIntoView();
+    }
   }
 
   componentWillReceiveProps(newProps) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class IndexThumb extends React.Component {
   constructor(props) {
@@ -76,19 +77,39 @@ class IndexThumb extends React.Component {
         thumbType = 'neutralthumb';
     }
     let thumb;
+
     if (this.state.hover) {
-      thumb = (
-        <div className='thumbs'>
-          <img
-            className='thumb1'
-            onClick={this.handleThumbClick(1)}
-            src={this.thumbsUpImage()} />
-          <img
-            className='thumb2'
-            onClick={this.handleThumbClick(-1)}
-            src={this.thumbsDownImage()} />
-        </div>
-      );
+      if (this.props.currentUser) {
+        thumb = (
+          <div className='thumbs'>
+            <img
+              className='thumb1'
+              onClick={this.handleThumbClick(1)}
+              src={this.thumbsUpImage()} />
+            <img
+              className='thumb2'
+              onClick={this.handleThumbClick(-1)}
+              src={this.thumbsDownImage()} />
+          </div>
+        );
+      } else {
+        thumb = (
+          <div className='thumbs'>
+            <Link to={'/session'} >
+              <img
+                className='thumb1'
+                onClick={this.handleThumbClick(1)}
+                src={this.thumbsUpImage()} />
+            </Link>
+            <Link to={'/session'} >
+            <img
+              className='thumb2'
+              onClick={this.handleThumbClick(-1)}
+              src={this.thumbsDownImage()} />
+            </Link>
+          </div>
+        );
+      }
     } else {
       thumb = (
         <div className='thumbs'>

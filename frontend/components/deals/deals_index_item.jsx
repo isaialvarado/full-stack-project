@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import { ThumbContainer } from '../thumbs/thumb_container';
 
 class DealsIndexItem extends React.Component {
@@ -10,7 +10,9 @@ class DealsIndexItem extends React.Component {
   render () {
     return (
       <div key={this.props.deal.id} className='index-item-container'>
-        <div className='index-item' onClick={() => this.props.router.push(`/${this.props.deal.id}`)}>
+        <div
+          className='index-item'
+          onClick={() => this.props.router.push(`/${this.props.deal.id}`)}>
           <div className='index-item-img-and-vendor'>
             <img src={this.props.deal.cloudUrl} />
             <h3 className='index-item-vendor'>{this.props.deal.vendor}</h3>
@@ -19,9 +21,14 @@ class DealsIndexItem extends React.Component {
           <h1 className='index-item-price'>${this.props.deal.price}</h1>
         </div>
         <div className='index-item-stats'>
-          <ThumbContainer thumbs={this.props.deal.thumbs} dealId={this.props.deal.id} thumbData={this.props.deal.thumbData} />
+          <ThumbContainer
+            thumbs={this.props.deal.thumbs}
+            dealId={this.props.deal.id}
+            thumbData={this.props.deal.thumbData} />
           <div className='comments-container'>
-            <img src='https://res.cloudinary.com/ssb64/image/upload/v1484767766/images_wvzpwm_wq5btl.png' />
+            <Link to={`/${this.props.deal.id}#deal-detail-comments`}>
+              <img src='https://res.cloudinary.com/ssb64/image/upload/v1484767766/images_wvzpwm_wq5btl.png' />
+            </Link>
             <span>{this.props.deal.totalComments}</span>
           </div>
         </div>

@@ -6,9 +6,10 @@ class SessionModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      showModal: this.props.initialState,
       formType: this.props.formType
     };
+    this.showButton = !this.props.initialState;
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -71,9 +72,14 @@ class SessionModal extends React.Component {
       }
     };
 
+    let button = null;
+    if (this.showButton) {
+      button = <button onClick={this.handleOpenModal}>{this.props.formType}</button>
+    }
+
     return (
       <div>
-        <button onClick={this.handleOpenModal}>{this.props.formType}</button>
+        {button}
         <Modal
           style={customStyle}
           onRequestClose={this.handleCloseModal}

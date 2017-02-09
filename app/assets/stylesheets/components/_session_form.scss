@@ -43,3 +43,7 @@
 #toggle-formType-button {
   color: rgb(4,109,139);
 }
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}

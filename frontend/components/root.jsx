@@ -6,6 +6,7 @@ import UserProfileContainer from './profile/user_profile_container';
 import DealsIndexContainer from './deals/deals_index_container';
 import DealFormContainer from './deals/deal_form_container';
 import DealDetailContainer from './deals/deal_detail_container';
+import SessionModalContainer from './modal/session_modal_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedOut = (nextState, replace) => {
@@ -16,9 +17,10 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={store}>
-      <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory}>
+      <Router history={hashHistory}>
         <Route path='/' component={App}>
           <IndexRoute component={DealsIndexContainer} />
+          <Route path='session' initialState={true} component={SessionModalContainer} />
           <Route path='search' component={DealsIndexContainer} />
           <Route path='new-deal' component={DealFormContainer} onEnter={_redirectIfLoggedOut} />
           <Route path='edit-deal/:dealId' component={DealFormContainer} onEnter={_redirectIfLoggedOut} />
