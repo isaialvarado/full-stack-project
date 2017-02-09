@@ -1,49 +1,24 @@
 class Api::DealsController < ApplicationController
   def search
-    if params[:searchData][:filter].nil?
-      if params[:searchData][:keywords].empty?
-        @deals = Deal.all.order('created_at DESC').limit(25)
-      else
-        @deals =
-          Deal
-          .where('title ~* ?', "\\m#{params[:searchData][:keywords]}\\M")
-          .order('created_at DESC')
-          .limit(25)
-      end
-    elsif params[:searchData][:keywords].empty?
-        if (params[:searchData][:filter][:maxPrice] == '') || (params[:searchData][:filter][:maxPrice].nil?)
-          max_price = Float::INFINITY
-        else
-          max_price = params[:searchData][:filter][:maxPrice].to_f
-        end
+    keywords = params[:searchData][:keywords]
+    search_string = keywords.empty? ? '' : "\\m#{params[:searchData][:keywords]}\\M"
 
-      @deals =
-        Deal
-          .where('price >= ?', params[:searchData][:filter][:minPrice].to_f)
-          .where('price <= ?', [Float::INFINITY, max_price].min)
-          .order('created_at DESC')
-          .limit(25)
+    min_price = params[:searchData][:filter][:minPrice].to_f
+    max_price = params[:searchData][:filter][:maxPrice]
+    max_price = ['', nil].include?(max_price) ? Float::INFINITY : max_price.to_f
 
-          @category = params[:searchData][:filter][:category]
-          @minRating = params[:searchData][:filter][:minRating].to_i
-    else
-      if (params[:searchData][:filter][:maxPrice] == '') || (params[:searchData][:filter][:maxPrice].nil?)
-        max_price = Float::INFINITY
-      else
-        max_price = params[:searchData][:filter][:maxPrice].to_f
-      end
+    category = params[:searchData][:filter][:category]
+    category = category == 'All' ? '' : "^#{category}$"
+    @minRating = params[:searchData][:filter][:minRating].to_i
 
-      @deals =
-        Deal
-          .where('title ~* ?', "\\m#{params[:searchData][:keywords]}\\M")
-          .where('price >= ?', params[:searchData][:filter][:minPrice].to_f)
-          .where('price <= ?', [Float::INFINITY, max_price].min)
-          .order('created_at DESC')
-          .limit(25)
-
-          @category = params[:searchData][:filter][:category]
-          @minRating = params[:searchData][:filter][:minRating].to_i
-    end
+    @deals =
+      Deal
+        .where('title ~* ?', search_string)
+        .where('price >= ?', min_price)
+        .where('price <= ?', max_price)
+        .where('category ~* ?', category)
+        .order('created_at DESC')
+        .limit(25)
 
     deal_ids = @deals.pluck(:id)
 

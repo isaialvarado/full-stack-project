@@ -22,7 +22,17 @@ class Search extends React.Component {
     if (this.props.location.pathname !== '/search') {
       this.props.router.push('/search');
     } else {
-      this.props.fetchSearchResults({ keywords: this.state.keywords, filter: {} });
+      this.props.fetchSearchResults(
+        {
+          keywords: this.state.keywords,
+          filter: {
+            minRating: 0,
+            category: 'All',
+            minPrice: 0,
+            maxPrice: ''
+          }
+        }
+      );
     }
   }
 
