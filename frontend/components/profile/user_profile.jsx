@@ -32,11 +32,13 @@ class UserProfile extends React.Component {
         </div>
         <h1>Deals Shared</h1>
         <table className='profile-deals'>
-          <tr>
-            <th><span>Date</span></th>
-            <th><span>Title</span></th>
-          </tr>
-          {deals}
+          <tbody>
+            <tr>
+              <th><span>Date</span></th>
+              <th><span>Title</span></th>
+            </tr>
+            {deals}
+          </tbody>
         </table>
       </div>
     );

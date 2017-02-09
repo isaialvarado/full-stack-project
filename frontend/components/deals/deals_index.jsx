@@ -16,7 +16,17 @@ class DealsIndex extends React.Component {
     const newUser = (this.props.currentUserId !== newProps.currentUserId);
 
     if (oldPath !== '/search' && newPath === '/search') {
-      this.props.fetchSearchResults({ keywords: newProps.search, filter: {} });
+      this.props.fetchSearchResults(
+        {
+          keywords: newProps.search,
+          filter: {
+            minRating: 0,
+            category: 'All',
+            minPrice: 0,
+            maxPrice: ''
+          }
+        }
+      );
     }
     if ((oldPath === '/search' && newPath === '/') || (newUser && newPath === '/')) {
       this.props.fetchDeals();
