@@ -14,7 +14,11 @@ const sessionReducer = (state = _nullUser, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
-      let modal = { show: false, formType: 'Log In' };
+      let show = true;
+      if (currentUser) {
+        show = false;
+      }
+      let modal = { show, formType: 'Log In' };
       return merge({}, _nullUser, { currentUser }, { modal });
     case RECEIVE_MODAL_OPTIONS:
       modal = action.modal;

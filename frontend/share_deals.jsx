@@ -7,7 +7,14 @@ import Modal from 'react-modal';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
-    const preloadedState = { session: { currentUser: window.currentUser } };
+    const preloadedState = (
+      {
+        session: {
+          currentUser: window.currentUser,
+          modal: { show: false, formType: 'Log In' }
+       }
+      }
+    );
     store = configureStore(preloadedState);
   } else {
     store = configureStore();
