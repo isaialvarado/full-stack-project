@@ -54,6 +54,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+:-moz-ui-invalid:not(output) {
+    box-shadow: none;
+}
+
 /* Clearfix */
 
 .group:after {

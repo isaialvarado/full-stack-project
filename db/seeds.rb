@@ -58,7 +58,7 @@ end
 def random_thumb
   {
     user_id: (1..102).to_a.sample,
-    deal_id: (1..47).to_a.sample,
+    deal_id: (1..45).to_a.sample,
     value: [-1, 1, 1, 1, 1].sample
   }
 end
@@ -381,30 +381,6 @@ deals = [
     image_url: "https://static.slickdealscdn.com/attachment/9/7/3/4/6/0/4/50x50/5124616.thumb",
     cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486581904/5124616_ubuoct.jpg",
     cloud_public_id: "5124616_ubuoct"
-  },
-  {
-    author_id: (1..102).to_a.sample,
-    category: "Office & School Supplies",
-    title: "Five Star Fat Lil' Wirebound Notebook, 200 sheets",
-    price: 5.40,
-    vendor: "Amazon",
-    description: "Wirebound notebook",
-    deal_url: "https://www.amazon.com/dp/B009MSHS4C?tag=slickdeals&ascsubtag=0ed62a20dddd11e6a5ed3ea98204674e0INT",
-    image_url: "https://static.slickdealscdn.com/attachment/7/4/4/5/2/6/50x50/5121584.thumb",
-    cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486581957/5121584_kf5be6.jpg",
-    cloud_public_id: "5121584_kf5be6"
-  },
-  {
-    author_id: (1..102).to_a.sample,
-    category: "Office & School Supplies",
-    title: "Staples: Omnitech 14-Sheet Cross-Cut Shredder",
-    price: 89.99,
-    vendor: "Staples",
-    description: "Shredder",
-    deal_url: "http://www.staples.com/Omnitech-14-Sheet-Cross-Cut-Shredder/product_1051112?affiliateref=cj&cvosrc=affiliate.cj.4485850&PID=4485850&cm_mmc=CJ-_-4485850-_-4485850-_-11965372&SID=2bad5920dddd11e69ca952668cf65bc40INT&cvo_campaign=Coupon&AID=11965372&storeId=10001&CID=AFF%3A4485850%3A4485850%3A11965372&CJPIXEL=CJPIXEL",
-    image_url: "https://static.slickdealscdn.com/attachment/2/2/2/7/3/2/2/50x50/5119208.thumb",
-    cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486582024/5119208_oerzbt.jpg",
-    cloud_public_id: "5119208_oerzbt"
   },
   {
     author_id: (1..102).to_a.sample,

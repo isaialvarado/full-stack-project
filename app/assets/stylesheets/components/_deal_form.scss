@@ -46,3 +46,9 @@
   background-color: rgb(149,170,97);
   color: rgb(246,248,238);
 }
+
+@-moz-document url-prefix() {
+  #deal-form input, #deal-form select, #deal-form textarea {
+    margin-bottom: 20px;
+  }
+}

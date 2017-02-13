@@ -28,6 +28,12 @@
   border-radius: 4px;
 }
 
+@-moz-document url-prefix() {
+  #session-modal-content input, #session-modal-content h1 {
+    margin-bottom: 15px;
+  }
+}
+
 #session-modal-content form input[type='submit'] {
   text-align: center;
   background-color: rgb(147,164,42);
