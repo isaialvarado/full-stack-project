@@ -87,14 +87,18 @@ class SessionModal extends React.Component {
           contentLabel="Share Deals Log In"
         >
         <div id='session-modal-content'>
+          <h1 id='session-modal-header'>Welcome to ShareDeals!</h1>
+          <p id='session-modal-subtitle'>
+            Share deals from around the internet!
+          </p>
           <SessionFormContainer formType={this.state.formType} />
-          <br/ >
+          <br />
           <input
             id='guest-login-button'
             type='submit'
             onClick={() => this.props.loginGuest({ username: 'Guest', password: 'password' })}
             value='Guest Log In' />
-          <br/ >
+          <br />
           {toggleFormType}
         </div>
         </Modal>

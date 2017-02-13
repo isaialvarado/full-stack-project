@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>{this.props.formType}</h1>
+        <h1 id='session-modal-formtype'>{this.props.formType}</h1>
         <br />
         {this.renderErrors()}
 

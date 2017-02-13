@@ -10,6 +10,16 @@
   text-align: center;
 }
 
+#session-modal-header {
+  margin-bottom: 3px;
+}
+
+#session-modal-subtitle {
+  font-style: italic;
+  color: darkgray;
+  margin-bottom: 20px;
+}
+
 #session-errors {
   color: red;
   margin-bottom: 10px;
@@ -29,7 +39,7 @@
 }
 
 @-moz-document url-prefix() {
-  #session-modal-content input, #session-modal-content h1 {
+  #session-modal-content input, #session-modal-formtype {
     margin-bottom: 15px;
   }
 }
