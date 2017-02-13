@@ -10,21 +10,24 @@ class DealDetailThumb extends React.Component {
 
   handleThumbClick(value) {
     if (this.props.currentUser === null) {
-      return;
-    }
-
-    const id = this.props.thumbData.id;
-    const oldValue = this.props.thumbData.value;
-    const deal_id = this.props.dealId;
-    const user_id = this.props.currentUser.id;
-
-    if (oldValue === value) {
-      return () => this.props.deleteThumb(id);
-    } else if (oldValue === null) {
-      return () => this.props.createThumb({ deal_id, user_id, value });
+      return () => {
+        this.props.receiveSessionModal({ showModal: true, formType: 'Log In' });
+      };
     } else {
-      return () => this.props.updateThumb({ id, value });
+      const id = this.props.thumbData.id;
+      const oldValue = this.props.thumbData.value;
+      const deal_id = this.props.dealId;
+      const user_id = this.props.currentUser.id;
+
+      if (oldValue === value) {
+        return () => this.props.deleteThumb(id);
+      } else if (oldValue === null) {
+        return () => this.props.createThumb({ deal_id, user_id, value });
+      } else {
+        return () => this.props.updateThumb({ id, value });
+      }
     }
+
   }
 
   thumbsUpImage() {

@@ -23,20 +23,22 @@ class IndexThumb extends React.Component {
 
   handleThumbClick(value) {
     if (this.props.currentUser === null) {
-      return;
-    }
-
-    const id = this.props.thumbData.id;
-    const oldValue = this.props.thumbData.value;
-    const deal_id = this.props.dealId;
-    const user_id = this.props.currentUser.id;
-
-    if (oldValue === value) {
-      return () => this.props.deleteThumb(id);
-    } else if (oldValue === null) {
-      return () => this.props.createThumb({ deal_id, user_id, value });
+      return () => {
+        this.props.receiveSessionModal({ showModal: true, formType: 'Log In' });
+      };
     } else {
-      return () => this.props.updateThumb({ id, value });
+      const id = this.props.thumbData.id;
+      const oldValue = this.props.thumbData.value;
+      const deal_id = this.props.dealId;
+      const user_id = this.props.currentUser.id;
+
+      if (oldValue === value) {
+        return () => this.props.deleteThumb(id);
+      } else if (oldValue === null) {
+        return () => this.props.createThumb({ deal_id, user_id, value });
+      } else {
+        return () => this.props.updateThumb({ id, value });
+      }
     }
   }
 
@@ -79,37 +81,18 @@ class IndexThumb extends React.Component {
     let thumb;
 
     if (this.state.hover) {
-      if (this.props.currentUser) {
-        thumb = (
-          <div className='thumbs'>
-            <img
-              className='thumb1'
-              onClick={this.handleThumbClick(1)}
-              src={this.thumbsUpImage()} />
-            <img
-              className='thumb2'
-              onClick={this.handleThumbClick(-1)}
-              src={this.thumbsDownImage()} />
-          </div>
-        );
-      } else {
-        thumb = (
-          <div className='thumbs'>
-            <Link to={'/session'} >
-              <img
-                className='thumb1'
-                onClick={this.handleThumbClick(1)}
-                src={this.thumbsUpImage()} />
-            </Link>
-            <Link to={'/session'} >
-            <img
-              className='thumb2'
-              onClick={this.handleThumbClick(-1)}
-              src={this.thumbsDownImage()} />
-            </Link>
-          </div>
-        );
-      }
+      thumb = (
+        <div className='thumbs'>
+          <img
+            className='thumb1'
+            onClick={this.handleThumbClick(1)}
+            src={this.thumbsUpImage()} />
+          <img
+            className='thumb2'
+            onClick={this.handleThumbClick(-1)}
+            src={this.thumbsDownImage()} />
+        </div>
+      );
     } else {
       thumb = (
         <div className='thumbs'>

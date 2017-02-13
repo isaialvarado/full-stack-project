@@ -58,7 +58,7 @@ end
 def random_thumb
   {
     user_id: (1..102).to_a.sample,
-    deal_id: (1..49).to_a.sample,
+    deal_id: (1..48).to_a.sample,
     value: [-1, 1, 1, 1, 1].sample
   }
 end
@@ -417,18 +417,6 @@ deals = [
     image_url: "https://static.slickdealscdn.com/attachment/2/2/2/7/3/2/2/50x50/5119208.thumb",
     cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486582024/5119208_oerzbt.jpg",
     cloud_public_id: "5119208_oerzbt"
-  },
-  {
-    author_id: (1..102).to_a.sample,
-    category: "Office & School Supplies",
-    title: "Rosewill RM-P2U Mouse-3 Buttons, 1 x Wheel, USB Wired, Optical, 800 dpi",
-    price: 5.99,
-    vendor: "Newegg",
-    description: "Computer mouse",
-    deal_url: "https://www.newegg.com/Product/Product.aspx?sdtid=9670664&SID=4b2fd214dddd11e681d6367c4edafe320INT&AID=10440897&PID=1225267&nm_mc=AFC-C8Junction&cm_mmc=AFC-C8Junction-_-cables-_-na-_-na&Item=N82E16826193070&ignorebbr=1&cm_sp=",
-    image_url: "https://static.slickdealscdn.com/attachment/1/0/0/5/2/5/2/8/50x50/5116004.thumb",
-    cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486582177/26-193-070-02_zzxgnl.jpg",
-    cloud_public_id: "26-193-070-02_zzxgnl"
   },
   {
     author_id: (1..102).to_a.sample,
