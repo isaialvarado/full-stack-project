@@ -58,7 +58,7 @@ end
 def random_thumb
   {
     user_id: (1..102).to_a.sample,
-    deal_id: (1..48).to_a.sample,
+    deal_id: (1..47).to_a.sample,
     value: [-1, 1, 1, 1, 1].sample
   }
 end
@@ -225,18 +225,6 @@ deals = [
     image_url: "https://slickdeals.net/forums/attachment.php?attachmentid=5127560&d=1484699666",
     cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486580425/attachment_hbb375.jpg",
     cloud_public_id: "attachment_hbb375"
-  },
-  {
-    author_id: (1..102).to_a.sample,
-    category: "Entertainment",
-    title: "Monoprice Premium 5.1-Ch. Home Theater speaker System with Subwoofer (10565)",
-    price: 179.99,
-    vendor: "Monoprice.com",
-    description: "Home theater speaker system",
-    deal_url: "https://www.monoprice.com/product?c_id=109&cp_id=10906&cs_id=1090601&p_id=10565&seq=1&format=2&AID=11064683&PID=4485850&ref=cj&utm_source=cj&utm_medium=11064683&utm_term=Slickdeals+LLC-1122587",
-    image_url: "https://static.slickdealscdn.com/attachment/6/0/0/3/6/5/8/50x50/5129808.thumb",
-    cloud_url: "https://res.cloudinary.com/him9jvagp/image/upload/v1486580511/5129808_k43kuw.jpg",
-    cloud_public_id: "5129808_k43kuw"
   },
   {
     author_id: (1..102).to_a.sample,
