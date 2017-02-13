@@ -55,7 +55,15 @@ input[type="submit"] {
 }
 
 :-moz-ui-invalid:not(output) {
-    box-shadow: none;
+  box-shadow: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 /* Clearfix */
