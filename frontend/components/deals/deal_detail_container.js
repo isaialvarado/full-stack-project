@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DealDetail from './deal_detail';
-import { fetchDeal, deleteDeal } from '../../actions/deals_actions';
+import { fetchDeal, deleteDeal, clearDetail } from '../../actions/deals_actions';
 
 const mapStateToProps = ({ dealDetail, session }) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = ({ dealDetail, session }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchDeal: dealId => dispatch(fetchDeal(dealId)),
-    deleteDeal: dealId => dispatch(deleteDeal(dealId))
+    deleteDeal: dealId => dispatch(deleteDeal(dealId)),
+    clearDetail: () => dispatch(clearDetail())
   };
 };
 

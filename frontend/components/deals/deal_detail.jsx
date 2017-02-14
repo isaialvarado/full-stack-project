@@ -17,6 +17,8 @@ class DealDetail extends React.Component {
     if (this.props.location.hash === '#deal-detail-comments') {
       const commentForm = document.getElementById('deal-detail-comments');
       commentForm.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
     }
   }
 
@@ -25,6 +27,10 @@ class DealDetail extends React.Component {
         || this.props.currentUser !== newProps.currentUser) {
       this.props.fetchDeal(newProps.params.dealId);
     }
+  }
+
+  componentWillUnmount() {
+    this.props.clearDetail();
   }
 
   mainThumbImage() {
@@ -56,6 +62,15 @@ class DealDetail extends React.Component {
       );
     }
 
+    let image = <img id='deal-detail-image' src={deal.cloudUrl} />;
+    if (deal.cloudUrl === null) {
+      image = (
+        <div id='deal-detail-image-placeholder'>
+          <h1 id='deal-detail-image-placeholder-text'>ShareDeals</h1>
+        </div>
+      );
+    }
+
     return (
       <div id='deal-detail-container'>
         <section id='deal-detail-top'>
@@ -70,7 +85,7 @@ class DealDetail extends React.Component {
                 <span>{deal.totalComments}</span>
               </div>
             </div>
-            <img id='deal-detail-image' src={deal.cloudUrl} />
+            {image}
             <h1 id='deal-detail-title'>{deal.title}</h1>
             <h2 id='deal-detail-price-and-vendor'>
               <span id='deal-detail-price'>${deal.price}</span>

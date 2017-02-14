@@ -83,6 +83,21 @@
   padding: 20px 0px;
 }
 
+#deal-detail-image-placeholder {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(149,170,97);
+  width: 300px;
+  height: 300px;
+}
+
+#deal-detail-image-placeholder-text {
+  color: rgb(246,248,238);
+  font-size: 35px;
+}
+
 #deal-detail-stats {
   display: flex;
   justify-content: flex-end;

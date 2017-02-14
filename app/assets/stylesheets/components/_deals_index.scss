@@ -47,11 +47,25 @@
   flex-direction: column;
 }
 
-.index-item img {
+.index-item-image {
   align-self: center;
   object-fit: scale-down;
   width: 200px;
   height: 200px;
+}
+
+.index-item-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(149,170,97);
+  width: 200px;
+  height: 200px;
+}
+
+.index-item-image-placeholder-text {
+  color: rgb(246,248,238);
+  font-size: 35px;
 }
 
 .index-item-vendor {

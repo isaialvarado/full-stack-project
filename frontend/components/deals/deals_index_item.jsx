@@ -8,13 +8,22 @@ class DealsIndexItem extends React.Component {
   }
 
   render () {
+    let image = <img className='index-item-image' src={this.props.deal.cloudUrl} />;
+    if (this.props.deal.cloudUrl === null) {
+      image = (
+        <div className='index-item-image-placeholder'>
+          <h1 className='index-item-image-placeholder-text'>ShareDeals</h1>
+        </div>
+      );
+    }
+
     return (
       <div key={this.props.deal.id} className='index-item-container'>
         <div
           className='index-item'
           onClick={() => this.props.router.push(`/${this.props.deal.id}`)}>
           <div className='index-item-img-and-vendor'>
-            <img src={this.props.deal.cloudUrl} />
+            {image}
             <h3 className='index-item-vendor'>{this.props.deal.vendor}</h3>
           </div>
           <h2 className='index-item-title'>{this.props.deal.title}</h2>

@@ -13,6 +13,10 @@ class UserProfile extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearProfile();
+  }
+
   render () {
     const date = new Date(this.props.userProfile.createdAt);
     const deals = this.props.userProfile.deals.map(deal => (
