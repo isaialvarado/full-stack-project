@@ -30,7 +30,9 @@ class DealDetail extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearDetail();
+    if (event.target.innerHTML !== 'Edit Deal') {
+      this.props.clearDetail();
+    }
   }
 
   mainThumbImage() {

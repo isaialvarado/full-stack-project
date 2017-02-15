@@ -31,6 +31,7 @@ class DealForm extends React.Component {
         vendor: ''
       });
     } else if (this.props.currentUser.id !== this.props.deal.authorId) {
+      debugger
       this.props.router.push('/');
     }
   }
