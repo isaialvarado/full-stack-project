@@ -67,8 +67,8 @@ class DealForm extends React.Component {
       { id: this.props.deal.id }
     );
     this.props.processForm(deal)
-      .then(res => this.props.router.push(`/${res.deal.id}`));
-    submitButton.disabled = false;
+      .then(res => this.props.router.push(`/${res.deal.id}`))
+      .always(() => { submitButton.disabled = false; });
   }
 
   renderErrors() {
