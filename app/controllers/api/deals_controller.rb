@@ -126,11 +126,13 @@ class Api::DealsController < ApplicationController
       begin
         unless deal_params[:image_url].empty?
           response = Cloudinary::Uploader.upload(@deal.image_url)
+          debugger
           @deal.cloud_url = response['secure_url']
           @deal.cloud_public_id = response['public_id']
         end
       rescue
         render json: ["Invalid Image URL"], status: 422
+        return
       end
       @deal.save
 

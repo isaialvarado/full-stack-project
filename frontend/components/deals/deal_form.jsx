@@ -31,7 +31,6 @@ class DealForm extends React.Component {
         vendor: ''
       });
     } else if (this.props.currentUser.id !== this.props.deal.authorId) {
-      debugger
       this.props.router.push('/');
     }
   }
@@ -58,14 +57,18 @@ class DealForm extends React.Component {
   }
 
   handleSubmit(e) {
+    const submitButton = document.getElementById('deal-form-submit');
+    submitButton.disabled = true;
+    submitButton.value = 'Please wait. Creating deal...';
     e.preventDefault();
     const deal = Object.assign(
       this.state,
       { author_id: this.props.currentUser.id },
-      { id: this.props.deal.id}
+      { id: this.props.deal.id }
     );
     this.props.processForm(deal)
       .then(res => this.props.router.push(`/${res.deal.id}`));
+    submitButton.disabled = false;
   }
 
   renderErrors() {
@@ -174,7 +177,7 @@ class DealForm extends React.Component {
                 onChange={this.handleChange('vendor')} />
             <br />
 
-            <input type='submit' value={formType} />
+            <input id='deal-form-submit' type='submit' value={formType} />
           </form>
         </div>
       </div>
