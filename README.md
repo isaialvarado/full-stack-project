@@ -2,6 +2,8 @@
 
 [ShareDeals][heroku] is a web application inspired by Slickdeals built using Ruby on Rails and React Redux.
 
+[heroku]: https://sharedeals.herokuapp.com/#/
+
 ## Motivation
 
 I enjoy browsing [Slickdeals](https://slickdeals.net/) and have found many good deals through their website.
