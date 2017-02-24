@@ -96,8 +96,7 @@ class IndexThumb extends React.Component {
     } else {
       thumb = (
         <div className='thumbs'>
-          <img
-            src={this.mainThumbImage()} />
+          <img src={this.mainThumbImage()} />
           <span>{this.props.thumbs}</span>
         </div>
       );
