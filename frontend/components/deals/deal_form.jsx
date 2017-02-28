@@ -59,7 +59,7 @@ class DealForm extends React.Component {
   handleSubmit(e) {
     const submitButton = document.getElementById('deal-form-submit');
     submitButton.disabled = true;
-    submitButton.value = 'Please wait. Creating deal...';
+    submitButton.value = 'Please wait...';
     e.preventDefault();
     const deal = Object.assign(
       this.state,
